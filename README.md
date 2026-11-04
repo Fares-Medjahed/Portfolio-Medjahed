@@ -85,7 +85,7 @@ Modèle de fichier local : `worker/.dev.vars.example` (copiez-le en `worker/.dev
    ```
    Puis `git add -A && git commit -m "Active le chatbot" && git push`. GitHub Pages republie en 1 à 2 minutes ; rechargez avec Ctrl+Maj+R.
 
-> Tant que `data-api` est vide, le bouton de chat n'est **pas affiché** sur le site.
+> **Deux modes.** Tant que `data-api` est vide, le chatbot fonctionne en **mode local** : le bouton est visible et répond à partir du profil de Farès (règles par mots-clés dans `js/chat.js`, rubrique « Mode local »), sans IA, sans clé et sans aucun envoi de données. Dès que `data-api` pointe vers le Worker, il passe en **mode IA** ; si l'IA est indisponible (quota épuisé, panne), il retombe automatiquement sur le mode local. Pour modifier les réponses du mode local, éditez l'objet `A` et les règles `RULES` dans `js/chat.js`.
 
 ## Mettre à jour la base de connaissances
 1. Modifiez `worker/src/knowledge.js` (faits exacts et non confidentiels uniquement ; coordonnées dans `CONTACT`).

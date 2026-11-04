@@ -5,7 +5,7 @@
   'use strict';
   var script = document.currentScript;
   var API = script && script.getAttribute('data-api') ? script.getAttribute('data-api').trim() : '';
-  if (!API) return;
+  // Sans API configurée : mode « local » (réponses calculées dans le navigateur à partir du profil).
 
   var MAX_CHARS = 500, MAX_HISTORY = 6;
   var EMAIL = 'Fares.medjahed2@gmail.com';
@@ -24,6 +24,9 @@
       rate: 'Vous envoyez beaucoup de messages. Patientez un instant avant de réessayer.',
       day: 'Limite quotidienne atteinte. Revenez demain ou contactez-moi via <a href="mailto:' + EMAIL + '">email</a>.',
       toolong: 'Votre message est trop long (500 caractères maximum).',
+      teaser: 'Posez-moi une question sur le parcours de Farès',
+      subLocal: 'Double numérique · basé sur le profil de Farès',
+      privacyLocal: 'Aucune donnée n’est envoyée : les réponses sont calculées dans votre navigateur à partir du profil de Farès.',
       you: 'Vous', bot: 'Assistant'
     },
     en: {
@@ -38,6 +41,9 @@
       rate: 'You are sending many messages. Please wait a moment before trying again.',
       day: 'Daily limit reached. Come back tomorrow or contact me by <a href="mailto:' + EMAIL + '">email</a>.',
       toolong: 'Your message is too long (500 characters maximum).',
+      teaser: 'Ask me about Farès’s background',
+      subLocal: 'Digital twin · based on Farès’s profile',
+      privacyLocal: 'No data is sent: answers are computed in your browser from Farès’s profile.',
       you: 'You', bot: 'Assistant'
     }
   };
@@ -52,6 +58,7 @@
       '<svg class="ic-chat" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>' +
       '<svg class="ic-x" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>' +
     '</button>' +
+    '<div class="chat-teaser" hidden><button type="button" class="chat-teaser-open"><span class="chat-teaser-text"></span></button><button type="button" class="chat-teaser-x" aria-label="×">&times;</button></div>' +
     '<section class="chat-panel" id="chat-panel" role="dialog" aria-modal="false" aria-labelledby="chat-title" hidden>' +
       '<header class="chat-head">' +
         '<div class="chat-avatar" aria-hidden="true">F</div>' +
@@ -82,7 +89,7 @@
   function applyLang() {
     launcher.setAttribute('aria-label', t('open'));
     $('#chat-title').textContent = t('title');
-    $('.chat-sub').textContent = t('subtitle');
+    $('.chat-sub').textContent = API ? t('subtitle') : t('subLocal');
     $('.chat-close').setAttribute('aria-label', t('close'));
     $('.chat-close').title = t('close');
     $('.chat-clear').setAttribute('aria-label', t('clear'));
@@ -91,7 +98,8 @@
     input.placeholder = t('placeholder');
     sendBtn.setAttribute('aria-label', t('send'));
     $('.chat-disclaimer').innerHTML = t('disclaimer');
-    $('.chat-privacy').textContent = t('privacy');
+    $('.chat-privacy').textContent = API ? t('privacy') : t('privacyLocal');
+    $('.chat-teaser-text').textContent = t('teaser');
     if (!history.length) renderWelcome();
   }
 
@@ -139,7 +147,118 @@
     });
   }
 
+
+  /* ---------- Mode local : réponses issues du profil (sans IA, sans réseau) ---------- */
+  var C = { email: EMAIL, linkedin: LINKEDIN, github: 'https://github.com/Fares-Medjahed', cv: 'https://fares-medjahed.github.io/Portfolio-Medjahed/cv/CV-Fares-Medjahed.pdf' };
+  var contactFr = C.email + ' ou LinkedIn (' + C.linkedin + ')';
+  var A = {
+    hello: { fr: 'Bonjour ! Je suis l’assistant IA de Farès. Je peux vous parler de son parcours, de ses compétences, de ses projets ou de son alternance chez EDF. Que souhaitez-vous savoir ?',
+             en: 'Hello! I’m Farès’s AI assistant. I can tell you about his background, skills, projects or his work-study at EDF. What would you like to know?' },
+    ai: { fr: 'Je suis un assistant IA qui représente Farès : je réponds à partir des informations qu’il a renseignées (parcours, CV, expériences, projets). Pour un échange direct, contactez-le : ' + C.email + '.',
+          en: 'I’m an AI assistant representing Farès: I answer from the information he has provided (background, CV, experience, projects). For a direct conversation, contact him: ' + C.email + '.' },
+    parcours: { fr: 'Je suis Farès Medjahed, alternant chez EDF (centrale nucléaire du Bugey) depuis août 2025 et étudiant en mastère MAALSI à CESI École d’ingénieurs. Avant, j’ai fait un BUT Informatique à l’IUT 2 de Grenoble, après un Bac STI2D. J’ai aussi effectué des stages chez Rio Tinto (2024) et Mafelec (2023). Je vise un poste de chef de projet IT ou de développeur full-stack, et je suis ouvert à l’international.',
+                en: 'I’m Farès Medjahed, a work-study student at EDF (Bugey nuclear power plant) since August 2025 and a MAALSI Master’s student at CESI engineering school. Before that I did a Bachelor’s in Computer Science at IUT 2 Grenoble, after a STI2D baccalaureate. I also did internships at Rio Tinto (2024) and Mafelec (2023). I’m aiming for an IT project manager or full-stack developer role, and I’m open to working internationally.' },
+    formation: { fr: 'Mon parcours : Bac STI2D (spécialité ITEC, lycée de l’Oiselet à Bourgoin-Jallieu, mention Assez Bien), puis BUT Informatique à l’IUT 2 de Grenoble, puis le mastère « Manager en architecture et applications logicielles des systèmes d’information » (MAALSI) à CESI École d’ingénieurs : niveau 7 (RNCP 35620), en alternance, de 2025 à 2027.',
+                 en: 'My education: STI2D baccalaureate (ITEC specialty, Lycée de l’Oiselet, Bourgoin-Jallieu, with honours), then a Bachelor’s in Computer Science at IUT 2 Grenoble, then the MAALSI Master’s (Manager in software architecture and information systems applications) at CESI engineering school: level 7 (RNCP 35620), work-study, 2025 to 2027.' },
+    edf: { fr: 'Depuis août 2025, je suis alternant chez EDF, à la centrale nucléaire du Bugey, jusqu’en 2027. Ma mission principale : développer une application web de gestion de formulaires (Angular, NestJS, TypeORM, SQL), des réunions de projet et du recueil du besoin jusqu’à la mise en œuvre, avec notamment un module de signature électronique de PDF. J’ai aussi des missions secondaires : nouvelles fonctionnalités, correction de bugs, merge requests et revue de code, export Excel sur une application de diffusion de documents, et administration des serveurs et machines virtuelles du site. Je reste volontairement général : l’environnement est sensible (sécurité, fiabilité, conformité).',
+           en: 'Since August 2025 I’ve been on a work-study programme at EDF, at the Bugey nuclear power plant, until 2027. My main mission: developing a web application for managing forms (Angular, NestJS, TypeORM, SQL), from project meetings and requirements gathering to implementation, including an electronic PDF signature module. I also have secondary missions: new features, bug fixes, merge requests and code review, an Excel export on an existing document-distribution application, and administration of the site’s servers and virtual machines. I keep this deliberately general: the environment is sensitive (security, reliability, compliance).' },
+    confidential: { fr: 'Pour des raisons de confidentialité, je ne détaille pas l’environnement interne d’EDF (applications, serveurs, architecture). Je peux seulement décrire mes missions de façon générale : développement d’une application web de gestion de formulaires, merge requests et revue de code, et administration des serveurs et machines virtuelles du site.',
+                    en: 'For confidentiality reasons, I don’t go into EDF’s internal environment (applications, servers, architecture). I can only describe my missions in general terms: developing a web application for managing forms, merge requests and code review, and administering the site’s servers and virtual machines.' },
+    rio: { fr: 'En 2024, j’ai fait un stage chez Rio Tinto. J’ai optimisé l’utilisation du CRM Dynamics 365 (nouvelles fonctionnalités, correction de bugs, mise à jour d’éléments obsolètes) et créé des rapports Power BI pour les chefs de projet afin d’automatiser le suivi financier des projets. Résultat : des rapports plus précis et plus rapides à produire.',
+           en: 'In 2024 I did an internship at Rio Tinto. I optimised the use of the Dynamics 365 CRM (new features, bug fixes, updating obsolete elements) and built Power BI reports for project managers to automate project financial tracking. Result: more accurate reports, faster to produce.' },
+    mafelec: { fr: 'En 2023, j’ai fait un stage chez Mafelec, entreprise d’électronique grenobloise fondée en 1947. Un dysfonctionnement logiciel empêchait l’export de rapports business depuis l’ERP IFS : j’ai écrit des requêtes PL/SQL pour extraire les données et un script Python (pandas) qui les exporte en Excel, planifié chaque jour ou chaque semaine. Plusieurs rapports ont été exportés avec succès.',
+               en: 'In 2023 I did an internship at Mafelec, an electronics company founded in Grenoble in 1947. A software malfunction prevented business reports from being exported from the IFS ERP: I wrote PL/SQL queries to extract the data and a Python (pandas) script exporting it to Excel, scheduled daily or weekly. Several reports were exported successfully.' },
+    stage: { fr: 'J’ai fait deux stages : chez Mafelec en 2023 (export automatique de rapports depuis l’ERP IFS avec PL/SQL et Python) et chez Rio Tinto en 2024 (CRM Dynamics 365 et rapports Power BI). Dites-moi lequel vous intéresse pour plus de détails.',
+             en: 'I did two internships: at Mafelec in 2023 (automatic report export from the IFS ERP with PL/SQL and Python) and at Rio Tinto in 2024 (Dynamics 365 CRM and Power BI reports). Tell me which one interests you for more details.' },
+    projets: { fr: 'J’ai réalisé plusieurs projets académiques : Le Dahu (application mobile et site web avec forum pour une association étudiante, équipe de 8), InstruMenthol (plateforme d’enchères d’instrumentales avec Symfony, équipe de 6), R-JUMP 3000 (jeu 2D en Python avec Pygame, équipe de 4), un Démineur en Flutter et un premier site web d’entreprise en trinôme. Vous les trouverez dans la section « Projets » du portfolio.',
+               en: 'I’ve done several academic projects: Le Dahu (mobile app and website with a forum for a student association, team of 8), InstruMenthol (an instrumental auction platform built with Symfony, team of 6), R-JUMP 3000 (a 2D game in Python with Pygame, team of 4), a Minesweeper in Flutter and a first company website in a trio. You’ll find them in the “Projects” section of the portfolio.' },
+    php: { fr: 'PHP fait partie de mes compétences, notamment avec Symfony, que j’ai utilisé sur des projets académiques comme Le Dahu et InstruMenthol. Je travaille aussi avec Angular, NestJS, TypeORM, Python et SQL. Le détail est dans la section « À propos ».',
+           en: 'PHP is part of my skills, notably with Symfony, which I used on academic projects such as Le Dahu and InstruMenthol. I also work with Angular, NestJS, TypeORM, Python and SQL. Details are in the “About” section.' },
+    competences: { fr: 'Côté technique : Angular, NestJS, TypeORM, Node.js, PHP / Symfony, Python, Java, C / C++, SQL / PL-SQL et NoSQL, HTML / CSS / JavaScript, Bootstrap et Flutter. Côté outils : Jira, Git et GitLab (merge requests, revue de code), Linux, PM2, Power BI et Dynamics 365. J’administre aussi des serveurs Linux et des machines virtuelles.',
+                   en: 'Technical: Angular, NestJS, TypeORM, Node.js, PHP / Symfony, Python, Java, C / C++, SQL / PL-SQL and NoSQL, HTML / CSS / JavaScript, Bootstrap and Flutter. Tools: Jira, Git and GitLab (merge requests, code review), Linux, PM2, Power BI and Dynamics 365. I also administer Linux servers and virtual machines.' },
+    gestion: { fr: 'Je développe un profil de chef de projet : réunions de projet et recueil du besoin auprès des utilisateurs, planification et suivi, coordination des parties prenantes, communication et reporting, en intégrant la sécurité et la conformité dès le cadrage. Mon mastère MAALSI me forme aussi au management de projets et d’équipes.',
+              en: 'I’m building a project-manager profile: project meetings and requirements gathering with users, planning and tracking, stakeholder coordination, communication and reporting, building security and compliance in from the scoping phase. My MAALSI Master’s also trains me in project and team management.' },
+    objectifs: { fr: 'Mon objectif est d’exercer comme chef de projet IT ou développeur full-stack, puis d’évoluer vers le management d’équipes. Je suis aussi ouvert à une expérience à l’international.',
+                 en: 'My goal is to work as an IT project manager or full-stack developer, then move into team management. I’m also open to an international experience.' },
+    international: { fr: 'Oui, je suis ouvert à l’international : une mission ou un poste à l’étranger est tout à fait envisageable. Pour en discuter, contactez-moi : ' + C.email + '.',
+                     en: 'Yes, I’m open to working internationally: an assignment or a position abroad is entirely possible. To discuss it, contact me: ' + C.email + '.' },
+    dispo: { fr: 'Je suis en alternance chez EDF d’août 2025 jusqu’en 2027, dans le cadre de mon mastère. Pour toute autre question de disponibilité, le mieux est de me contacter directement : ' + contactFr + '.',
+             en: 'I’m on a work-study programme at EDF from August 2025 until 2027, as part of my Master’s. For any other availability question, the best is to contact me directly: ' + C.email + ' or LinkedIn (' + C.linkedin + ').' },
+    contact: { fr: 'Vous pouvez me contacter par email : ' + C.email + ' ou sur LinkedIn : ' + C.linkedin + '. Mon GitHub : ' + C.github + '. Mon CV est téléchargeable depuis le portfolio.',
+               en: 'You can reach me by email: ' + C.email + ' or on LinkedIn: ' + C.linkedin + '. My GitHub: ' + C.github + '. My CV can be downloaded from the portfolio.' },
+    cv: { fr: 'Mon CV est téléchargeable ici : ' + C.cv + ' (PDF). Il reprend mon parcours, mes expériences, ma formation et mes compétences.',
+          en: 'My CV can be downloaded here: ' + C.cv + ' (PDF). It covers my background, experience, education and skills.' },
+    interets: { fr: 'En dehors du travail, j’aime le sport et les voyages, qui nourrissent mon ouverture sur le monde. J’apprécie aussi l’automobile, les jeux vidéo et le piano.',
+                en: 'Outside work I enjoy sport and travel, which fuel my openness to the world. I also like cars, video games and the piano.' },
+    langues: { fr: 'Je peux répondre en français ou en anglais. Pour le niveau exact de Farès dans chaque langue, le mieux est de le contacter directement : ' + C.email + '.',
+               en: 'I can answer in French or English. For Farès’s exact level in each language, the best is to contact him directly: ' + C.email + '.' },
+    refus: { fr: 'Je ne communique pas de salaire ni de données personnelles ici. Pour en discuter, contactez-moi directement : ' + contactFr + '.',
+             en: 'I don’t share salary or personal data here. To discuss it, contact me directly: ' + C.email + ' or LinkedIn (' + C.linkedin + ').' },
+    horsSujet: { fr: 'Je ne peux répondre qu’aux questions sur mon profil : parcours, compétences, projets, formation, alternance ou objectifs. Que souhaitez-vous savoir ?',
+                 en: 'I can only answer questions about my profile: background, skills, projects, education, work-study or goals. What would you like to know?' },
+    injection: { fr: 'Je ne peux pas faire cela. Posez-moi plutôt vos questions sur le parcours, les compétences ou les projets de Farès.',
+                 en: 'I can’t do that. Feel free to ask about Farès’s background, skills or projects.' },
+    inconnu: { fr: 'Je n’ai pas cette information, le mieux est de me contacter directement : ' + contactFr + '.',
+               en: 'I don’t have that information, the best is to contact me directly: ' + C.email + ' or LinkedIn (' + C.linkedin + ').' }
+  };
+  var RULES = [
+    ['refus', /salaire|remuneration|pretention|salary|\bpay\b|wage|telephone|numero de tel|adresse|phone number|home address|\bage\b/],
+    ['injection', /(ignore|oublie|disregard|forget).{0,40}(instruction|consigne|regle|rule|prompt)|prompt systeme|system prompt|tu es maintenant|you are now|jailbreak|mode developpeur|developer mode/],
+    ['confidential', /(serveur|server|interne|internal|infrastructure|architecture|code source|source code|nom des? appli).*(edf|bugey|nucle|nuclear|alternance|work-study)|(edf|bugey|nucle|nuclear).*(serveur|server|interne|internal|infrastructure|architecture|code source|source code)/],
+    ['ai', /(es[- ]tu|etes[- ]vous|are you).{0,25}(humain|human|robot|\bia\b|\bai\b|bot|vrai|real)|qui t.a (cree|fait)/],
+    ['horsSujet', /meteo|weather|recette|cuisine|football|capitale|president|politique|election|bitcoin|blague|joke|ecris.{0,25}(fonction|code|script|programme)|write.{0,25}(function|code|script|program)|tri en python|sorting|traduis|translate|\bmath/],
+    ['hello', /^(bonjour|salut|hello|hi|hey|coucou|bonsoir)\b/],
+    ['cv', /\bcv\b|curriculum|resume\b.*(pdf|telecharg)|download.*(cv|resume)/],
+    ['contact', /contact|e-?mail|linkedin|github|joindre|reach (you|him)|get in touch|coordonnee/],
+    ['dispo', /disponib|available|availability|embauch|recrut|start date|date de debut|\bhire\b|libre/],
+    ['international', /international|etranger|abroad|mobilit|expat|overseas/],
+    ['langues', /anglais|english|langue|language|francais|french|bilingue|bilingual/],
+    ['rio', /rio ?tinto|power ?bi|dynamics/],
+    ['mafelec', /mafelec|\bifs\b|\berp\b/],
+    ['stage', /stage|internship|intern\b/],
+    ['edf', /\bedf\b|bugey|nucleaire|nuclear|alternance|work-study|apprentice|formulaire|signature|demandoc|diffusion/],
+    ['formation', /formation|etude|diplome|master|mastere|maalsi|cesi|\bbut\b|\biut\b|\bbac\b|sti2d|education|degree|school|univers/],
+    ['gestion', /gestion de projet|project management|chef de projet|project manager|\bmanage|agile|scrum|kanban|leadership|equipe|\bteam\b|parties prenantes|stakeholder/],
+    ['projets', /projet|project|dahu|instru|demineur|r-jump|pygame|portfolio|realis/],
+    ['php', /\bphp\b|symfony/],
+    ['competences', /competence|skill|techno|langage|stack|angular|nestjs|nest\b|typeorm|sql|python|java|linux|jira|\bgit|outil|tool|framework|\bc\+\+|node/],
+    ['objectifs', /objectif|\bgoal|ambition|motivation|pourquoi|\bwhy\b|projet pro|carriere|career|futur|\bfuture\b|\bvise\b|looking for|recherch/],
+    ['interets', /interet|hobby|hobbies|loisir|sport|voyage|piano|jeux|passion|travel|interests|musique/],
+    ['parcours', /parcours|background|profil|presente|qui es|qui etes|who are|about you|about yourself|cursus|experience|racont|tell me/]
+  ];
+  function strip(s) { return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
+  function isEnglish(q) {
+    var en = /\b(the|you|your|what|are|do|does|how|tell|about|where|when|which|can|have|skills|projects|experience|available|speak)\b/i.test(q);
+    var fr = /\b(quel|quelle|quels|tes|ton|ta|est|vous|que|des|les|une|comment|parle|moi|avez|etes|sont)\b/i.test(strip(q));
+    return en && !fr ? true : (fr && !en ? false : lang() === 'en');
+  }
+  function localAnswer(q) {
+    var n = strip(q), l = isEnglish(q) ? 'en' : 'fr', key = 'inconnu';
+    for (var i = 0; i < RULES.length; i++) { if (RULES[i][1].test(n)) { key = RULES[i][0]; break; } }
+    if (key === 'parcours' && /\bphp\b/.test(n)) key = 'php';
+    return A[key][l];
+  }
+  function localReply(text, bubble, done) {
+    var answer = localAnswer(text), i = 0, got = '';
+    setTimeout(function () {
+      (function step() {
+        got = answer.slice(0, i += 6);
+        bubble.innerHTML = format(got);
+        scrollDown();
+        if (i < answer.length) return setTimeout(step, 18);
+        bubble.innerHTML = format(answer);
+        history.push({ role: 'user', content: text }, { role: 'assistant', content: answer });
+        history = history.slice(-MAX_HISTORY);
+        done();
+      })();
+    }, 450);
+  }
+
   /* ---------- Envoi ---------- */
+  function finish() {
+    busy = false; sendBtn.disabled = false; controller = null;
+    if (panel.hidden === false) input.focus();
+  }
   function send(text) {
     text = (text || '').trim();
     if (!text || busy) return;
@@ -148,9 +267,11 @@
     sugg.innerHTML = '';
     addMsg('user', text);
     input.value = ''; autosize();
-    var body = history.slice(-MAX_HISTORY).concat([{ role: 'user', content: text }]);
     var bubble = addMsg('bot', typingDots(), true);
-    var got = '';
+    if (!API) { localReply(text, bubble, finish); return; }   // mode local
+
+    var body = history.slice(-MAX_HISTORY).concat([{ role: 'user', content: text }]);
+    var got = '', fallback = false;
     controller = new AbortController();
 
     fetch(API, {
@@ -173,14 +294,14 @@
       if (err && err.name === 'AbortError') return;
       var code = (err && err.code) || 'unavailable';
       if (got.trim()) return; // réponse partielle déjà affichée
-      var msg = code === 'rate_limited' ? t('rate') : code === 'too_long' ? t('toolong') : t('unavailable');
-      if (code === 'rate_limited' && err.message) msg = t('rate');
+      if (code === 'unavailable' || code === 'server_error') { fallback = true; return; } // IA indisponible : réponse locale
+      var msg = code === 'rate_limited' ? (err.message && /quotidienne|daily/i.test(err.message) ? t('day') : t('rate')) : code === 'too_long' ? t('toolong') : t('unavailable');
       bubble.innerHTML = msg;
       bubble.parentNode.classList.add('is-error');
       scrollDown();
     }).then(function () {
-      busy = false; sendBtn.disabled = false; controller = null;
-      if (panel.hidden === false) input.focus();
+      if (fallback) return localReply(text, bubble, finish);
+      finish();
     });
   }
 
@@ -212,6 +333,7 @@
   /* ---------- Interactions ---------- */
   function autosize() { input.style.height = 'auto'; input.style.height = Math.min(input.scrollHeight, 110) + 'px'; }
   function openPanel() {
+    if (teaser) hideTeaser();
     panel.hidden = false;
     requestAnimationFrame(function () { root.classList.add('is-open'); });
     launcher.setAttribute('aria-expanded', 'true');
@@ -240,6 +362,19 @@
   root.addEventListener('click', function (e) {
     if (e.target.closest && e.target.closest('[data-chat-contact]')) closePanel();
   });
+
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-open-chat]');
+    if (b) { e.preventDefault(); if (panel.hidden) openPanel(); else input.focus(); }
+  });
+
+  /* Bulle d'invitation à côté du bouton (une fois par session) */
+  var teaser = $('.chat-teaser');
+  function hideTeaser() { teaser.hidden = true; try { sessionStorage.setItem('chatTeaser', '1'); } catch (e) {} }
+  var seen = false; try { seen = sessionStorage.getItem('chatTeaser') === '1'; } catch (e) {}
+  if (!seen) setTimeout(function () { if (panel.hidden) teaser.hidden = false; }, 3500);
+  $('.chat-teaser-open').addEventListener('click', function () { hideTeaser(); openPanel(); });
+  $('.chat-teaser-x').addEventListener('click', hideTeaser);
 
   new MutationObserver(function () { applyLang(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
   applyLang();

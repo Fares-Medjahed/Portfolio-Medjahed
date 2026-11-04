@@ -7,6 +7,7 @@ const EN = {
   skip: 'Skip to content',
   nav_home: 'Home', nav_about: 'About', nav_edf: 'EDF', nav_path: 'Background', nav_projects: 'Projects', nav_contact: 'Contact',
   badge_intl: 'Open to international',
+  cta_text: 'I’ve entered my whole background, my CV and everything I’ve done into my AI assistant: <strong>ask it a question!</strong>', cta_btn: 'Chat with the assistant',
   badge: 'Work-study at EDF · MAALSI Master, CESI',
   hero_p: 'Since August 2025, I have been on a work-study programme at EDF (Bugey nuclear power plant), leading application projects from requirements gathering to deployment. I am completing a Master’s in software architecture and information systems and I am looking for a role as an IT project manager or full-stack developer.',
   btn_cv: 'Download my CV', btn_linkedin: 'My LinkedIn', btn_edf: 'My EDF experience',

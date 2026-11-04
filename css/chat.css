@@ -79,3 +79,22 @@
   .chat-launcher, .chat-dots i { animation: none; }
   .chat-panel { transition: none; }
 }
+
+/* ---------- Bulle d'invitation ---------- */
+.chat-teaser { position: absolute; right: 72px; bottom: 8px; display: flex; align-items: stretch; background: var(--card-2); border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 12px 30px rgba(0,0,0,.4); animation: teaserIn .35s ease both; width: max-content; max-width: 240px; }
+.chat-teaser[hidden] { display: none; }
+.chat-teaser::after { content: ''; position: absolute; right: -6px; bottom: 18px; width: 12px; height: 12px; background: var(--card-2); border-right: 1px solid var(--border); border-top: 1px solid var(--border); transform: rotate(45deg); }
+.chat-teaser-open { font: inherit; font-size: .85rem; font-weight: 600; color: var(--text); background: none; border: 0; padding: 12px 6px 12px 14px; cursor: pointer; text-align: left; line-height: 1.35; }
+.chat-teaser-x { background: none; border: 0; color: var(--muted); font-size: 1.2rem; padding: 0 10px 0 4px; cursor: pointer; align-self: flex-start; margin-top: 6px; }
+.chat-teaser-x:hover { color: var(--text); }
+@keyframes teaserIn { from { opacity: 0; transform: translateX(10px); } }
+.chat-root.is-open .chat-teaser { display: none; }
+@media (max-width: 520px) { .chat-teaser { right: 70px; max-width: 190px; } }
+
+/* ---------- Invitation dans l'accueil ---------- */
+.chat-cta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 30px; padding: 16px 18px; max-width: 560px; border-radius: 18px; background: linear-gradient(135deg, rgba(108,140,255,.14), rgba(34,211,197,.1)); border: 1px solid rgba(108,140,255,.3); }
+.chat-cta-icon { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; background: var(--grad); color: #07101f; font-size: 1.2rem; flex-shrink: 0; }
+.chat-cta p { flex: 1 1 220px; margin: 0; font-size: .93rem; line-height: 1.5; color: var(--text); }
+.chat-cta p strong { color: var(--accent); }
+.chat-cta .btn { padding: 10px 18px; font-size: .9rem; white-space: nowrap; }
+@media (max-width: 960px) { .chat-cta { margin-left: auto; margin-right: auto; text-align: left; } }
