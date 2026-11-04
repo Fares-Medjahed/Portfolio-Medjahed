@@ -352,7 +352,7 @@ a.contact-card:hover { transform: translateY(-4px); border-color: var(--accent);
 }
 
 /* ---------- Étiquettes autour de la photo ---------- */
-.card-c { top: 46%; right: -44px; animation-delay: .8s; }
+.card-c { top: 62%; right: -56px; animation-delay: .8s; }
 .card-a { top: 6%; left: -44px; }
 .card-b { bottom: 6%; left: -30px; right: auto; }
 @media (max-width: 960px) {
