@@ -247,3 +247,57 @@ a.contact-card:hover { transform: translateY(-4px); border-color: var(--accent);
   * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   .js .reveal { opacity: 1; transform: none; }
 }
+
+/* ---------- Accessibilité / langue ---------- */
+.skip-link { position: absolute; left: -999px; top: 8px; z-index: 200; background: var(--accent); color: #07101f; padding: 10px 16px; border-radius: 10px; font-weight: 600; }
+.skip-link:focus { left: 8px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.header-right { display: flex; align-items: center; gap: 10px; }
+.lang-btn { background: rgba(255,255,255,.05); border: 1px solid var(--border); color: var(--text); font-family: inherit; font-weight: 700; font-size: .8rem; letter-spacing: 1px; padding: 8px 14px; border-radius: 999px; cursor: pointer; transition: border-color .2s, background .2s; }
+.lang-btn:hover { border-color: var(--accent); background: rgba(34,211,197,.1); }
+.hero .lead { color: var(--text); font-size: 1.2rem; font-weight: 500; margin-bottom: 14px; }
+
+/* ---------- Atouts ---------- */
+.facts { padding: 0 0 20px; margin-top: -30px; position: relative; z-index: 2; }
+.facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.fact { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; display: grid; gap: 4px; }
+.fact i { color: var(--accent); font-size: 1.4rem; margin-bottom: 8px; }
+.fact strong { font-size: 1rem; }
+.fact span { color: var(--muted); font-size: .88rem; line-height: 1.5; }
+
+/* ---------- EDF ---------- */
+.edf-head { max-width: 860px; margin: 0 auto 40px; background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: 28px 30px; }
+.edf-head h3 { font-size: 1.6rem; margin: 6px 0 10px; }
+.edf-head p { color: var(--muted); }
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-bottom: 56px; }
+.pillar { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; }
+.pillar-icon { width: 50px; height: 50px; border-radius: 14px; display: grid; place-items: center; background: var(--grad); color: #07101f; font-size: 1.2rem; margin-bottom: 16px; }
+.pillar h4 { font-size: 1.15rem; margin-bottom: 10px; }
+.pillar ul, .case ul { color: var(--muted); padding-left: 18px; font-size: .93rem; }
+.pillar li, .case li { margin-bottom: 6px; }
+.sub-h { text-align: center; font-size: 1.6rem; margin-bottom: 28px; }
+.cases { display: grid; gap: 22px; max-width: 980px; margin: 0 auto; }
+.case { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px 28px; }
+.case-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+.case-head h4 { font-size: 1.2rem; }
+.case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 32px; }
+.case-grid h5 { color: var(--accent); font-size: .78rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px; }
+.case-grid p { color: var(--muted); font-size: .93rem; }
+.kpis { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
+.kpi { background: rgba(34,211,197,.08); border: 1px solid rgba(34,211,197,.25); border-radius: 12px; padding: 10px 14px; }
+.kpi strong { display: block; color: var(--accent); font-size: 1.3rem; line-height: 1.2; }
+.kpi span { font-size: .8rem; color: var(--muted); }
+.confidential { max-width: 760px; margin: 34px auto 0; text-align: center; color: var(--muted); font-size: .88rem; }
+.confidential i { color: var(--accent); margin-right: 6px; }
+
+@media (max-width: 960px) {
+  .facts-grid { grid-template-columns: repeat(2, 1fr); }
+  .pillars { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .case-grid { grid-template-columns: 1fr; }
+  .case { padding: 22px 18px; }
+  .edf-head { padding: 22px 20px; }
+  .facts-grid { grid-template-columns: 1fr; }
+  .nav { top: 72px; }
+}

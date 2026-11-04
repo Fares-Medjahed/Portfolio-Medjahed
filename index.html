@@ -3,45 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Farès Medjahed – Développeur Web</title>
-  <meta name="description" content="Portfolio de Farès Medjahed, étudiant en BUT Informatique à Grenoble, développeur web en alternance chez EDF.">
+  <title>Farès Medjahed – Futur chef de projet IT | Alternant EDF</title>
+  <meta name="description" content="Farès Medjahed, alternant chez EDF (centrale nucléaire du Bugey) et étudiant en mastère MAALSI à CESI École d'ingénieurs. Gestion de projet IT, développement full-stack et administration systèmes en environnement sécurisé.">
+  <meta name="author" content="Farès Medjahed">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Farès Medjahed – Futur chef de projet IT">
+  <meta property="og:description" content="Alternant chez EDF, mastère MAALSI (CESI). Gestion de projet IT, développement full-stack et administration systèmes en environnement sécurisé.">
+  <meta property="og:image" content="https://fares-medjahed.github.io/Portfolio-Medjahed/images/fares.jpg">
+  <meta property="og:url" content="https://fares-medjahed.github.io/Portfolio-Medjahed/">
+  <meta name="theme-color" content="#0b1020">
+  <link rel="canonical" href="https://fares-medjahed.github.io/Portfolio-Medjahed/">
+  <link rel="preload" as="image" href="images/fares.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Farès Medjahed",
+    "jobTitle": "Alternant chef de projet IT / développeur full-stack",
+    "worksFor": { "@type": "Organization", "name": "EDF" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "CESI École d'ingénieurs" },
+      { "@type": "CollegeOrUniversity", "name": "IUT 2 de Grenoble" }
+    ],
+    "url": "https://fares-medjahed.github.io/Portfolio-Medjahed/",
+    "sameAs": ["https://www.linkedin.com/in/fares-m-8a0b7224b/"]
+  }
+  </script>
 </head>
 <body>
+
+  <a href="#main" class="skip-link" data-i18n="skip">Aller au contenu</a>
 
   <!-- ===== Navigation ===== -->
   <header class="header" id="header">
     <div class="container header-inner">
       <a href="#home" class="logo"><span>F</span>arès</a>
-      <button class="nav-toggler" id="nav-toggler" aria-label="Menu" aria-expanded="false"><span></span></button>
-      <nav class="nav" id="nav">
-        <a href="#home" class="active">Accueil</a>
-        <a href="#about">À propos</a>
-        <a href="#experience">Expérience</a>
-        <a href="#projects">Projets</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div class="header-right">
+        <nav class="nav" id="nav">
+          <a href="#home" class="active" data-i18n="nav_home">Accueil</a>
+          <a href="#about" data-i18n="nav_about">À propos</a>
+          <a href="#edf" data-i18n="nav_edf">EDF</a>
+          <a href="#experience" data-i18n="nav_path">Parcours</a>
+          <a href="#projects" data-i18n="nav_projects">Projets</a>
+          <a href="#contact" data-i18n="nav_contact">Contact</a>
+        </nav>
+        <button class="lang-btn" id="lang-btn" type="button" aria-label="Changer de langue / Switch language">EN</button>
+        <button class="nav-toggler" id="nav-toggler" aria-label="Menu" aria-expanded="false"><span></span></button>
+      </div>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <!-- ===== Accueil ===== -->
     <section class="hero" id="home">
       <div class="blob blob-1"></div>
       <div class="blob blob-2"></div>
       <div class="container hero-inner">
         <div class="hero-text reveal">
-          <span class="badge"><i class="fa fa-circle"></i> En alternance chez EDF</span>
-          <h1>Salut, moi c'est <span class="gradient">Farès Medjahed</span></h1>
-          <h2>Je suis <span class="typing"></span></h2>
-          <p>Étudiant en BUT Informatique à Grenoble, passionné par le développement web, le design et la donnée. J'aime concevoir des applications utiles, travailler en équipe et apprendre chaque jour de nouvelles choses.</p>
+          <span class="badge"><i class="fa fa-circle"></i> <span data-i18n="badge">Alternant chez EDF · Mastère MAALSI, CESI</span></span>
+          <h1>Farès <span class="gradient">Medjahed</span></h1>
+          <h2><span class="typing"></span></h2>
+          <p class="lead" data-i18n="hero_lead">Je transforme les besoins métier en solutions logicielles fiables, dans des environnements où la sécurité n'est pas négociable.</p>
+          <p data-i18n="hero_p">En alternance chez EDF (centrale nucléaire du Bugey) depuis août 2025, je conduis des projets applicatifs du recueil du besoin au déploiement. Je prépare un mastère en architecture et applications logicielles des systèmes d'information et vise un poste de chef de projet IT dans un grand groupe.</p>
           <div class="hero-buttons">
-            <a href="#projects" class="btn btn-primary">Voir mes projets <i class="fa fa-arrow-right"></i></a>
-            <a href="#contact" class="btn btn-outline">Me contacter</a>
+            <a href="https://www.linkedin.com/in/fares-m-8a0b7224b/" target="_blank" rel="noopener" class="btn btn-primary"><i class="fab fa-linkedin-in"></i> <span data-i18n="btn_linkedin">Mon LinkedIn</span></a>
+            <a href="#edf" class="btn btn-outline"><span data-i18n="btn_edf">Mon expérience EDF</span> <i class="fa fa-arrow-right"></i></a>
           </div>
           <div class="socials">
             <a href="https://www.linkedin.com/in/fares-m-8a0b7224b/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -53,9 +84,19 @@
           <div class="photo-frame">
             <img src="images/fares.jpg" alt="Portrait de Farès Medjahed" width="900" height="1312">
           </div>
-          <div class="floating-card card-a"><i class="fa fa-code"></i> Web &amp; Data</div>
-          <div class="floating-card card-b"><i class="fa fa-graduation-cap"></i> BUT Informatique</div>
+          <div class="floating-card card-a"><i class="fa fa-shield-alt"></i> <span data-i18n="float_a">Sécurité & fiabilité</span></div>
+          <div class="floating-card card-b"><i class="fa fa-project-diagram"></i> <span data-i18n="float_b">Gestion de projet IT</span></div>
         </div>
+      </div>
+    </section>
+
+    <!-- ===== Atouts ===== -->
+    <section class="facts">
+      <div class="container facts-grid">
+        <div class="fact reveal"><i class="fa fa-atom"></i><strong data-i18n="f1_t">Environnement nucléaire</strong><span data-i18n="f1_d">Sécurité, fiabilité et conformité au quotidien</span></div>
+        <div class="fact reveal"><i class="fa fa-sitemap"></i><strong data-i18n="f2_t">Du site au national</strong><span data-i18n="f2_d">Des solutions déployées localement, pensées pour s'étendre</span></div>
+        <div class="fact reveal"><i class="fa fa-sync-alt"></i><strong data-i18n="f3_t">Cycle complet</strong><span data-i18n="f3_d">Besoin, développement, déploiement et exploitation</span></div>
+        <div class="fact reveal"><i class="fa fa-globe-europe"></i><strong data-i18n="f4_t">Ouvert à l'international</strong><span data-i18n="f4_d">Première expérience à l'étranger envisagée</span></div>
       </div>
     </section>
 
@@ -63,95 +104,102 @@
     <section class="section" id="about">
       <div class="container">
         <div class="section-title reveal">
-          <span>Qui suis-je ?</span>
-          <h2>À propos de moi</h2>
+          <span data-i18n="about_kicker">Qui suis-je ?</span>
+          <h2 data-i18n="about_title">À propos de moi</h2>
         </div>
 
         <div class="about-grid">
           <div class="about-text reveal">
-            <h3>Développeur web curieux, rigoureux et motivé</h3>
-            <p>Je suis en troisième année de BUT Informatique à l'IUT 2 de Grenoble. Passionné par le développement web et le design, j'apprécie le travail en équipe comme l'autonomie, et ma curiosité me pousse à apprendre en permanence.</p>
-            <p>J'ai déjà évolué dans plusieurs environnements professionnels : un stage chez <strong>Mafelec</strong> (2023), un stage chez <strong>Rio Tinto</strong> (2024), et aujourd'hui une <strong>alternance chez EDF</strong>, où je mets en pratique mes compétences au quotidien tout en continuant à me former.</p>
-            <p>Dans la vie, je suis quelqu'un d'énergique et ouvert sur le monde. J'adore le <strong>sport</strong> et les <strong>voyages</strong> : découvrir de nouveaux pays, de nouvelles cultures et me dépasser physiquement m'apportent l'équilibre et l'énergie dont j'ai besoin pour avancer.</p>
+            <h3 data-i18n="about_h3">Un profil hybride : assez technique pour challenger, assez orienté projet pour livrer</h3>
+            <p data-i18n="about_p1">Étudiant à CESI École d'ingénieurs (mastère MAALSI, niveau 7) après un BUT Informatique, je construis un profil à la croisée du développement, des systèmes et de la gestion de projet : je comprends les solutions que je pilote parce que je les ai aussi développées et déployées.</p>
+            <p data-i18n="about_p2">Chez EDF, j'ai appris à travailler avec des utilisateurs métier, des prestataires et des équipes sécurité, avec une exigence : ce qui est livré doit être fiable, sûr et maintenable.</p>
+            <p data-i18n="about_p3">Mon objectif : devenir chef de projet IT dans un grand groupe, puis évoluer vers le management d'équipes, si possible avec une première expérience à l'international.</p>
+            <p data-i18n="about_p4">En dehors du travail, le <strong>sport</strong> et les <strong>voyages</strong> m'équilibrent et nourrissent mon ouverture aux autres cultures. J'aime aussi l'automobile, les jeux vidéo et le piano.</p>
 
             <div class="info-grid">
-              <div><i class="fa fa-user-graduate"></i><span>Études</span><strong>BUT Informatique</strong></div>
-              <div><i class="fa fa-briefcase"></i><span>Situation</span><strong>Alternant chez EDF</strong></div>
-              <div><i class="fa fa-map-marker-alt"></i><span>Ville</span><strong>Grenoble, France</strong></div>
-              <div><i class="fa fa-birthday-cake"></i><span>Âge</span><strong><span id="age">23</span> ans</strong></div>
+              <div><i class="fa fa-user-graduate"></i><span data-i18n="i1_l">Formation</span><strong data-i18n="i1_v">Mastère MAALSI, CESI</strong></div>
+              <div><i class="fa fa-briefcase"></i><span data-i18n="i2_l">Situation</span><strong data-i18n="i2_v">Alternant chez EDF (2025–2027)</strong></div>
+              <div><i class="fa fa-bullseye"></i><span data-i18n="i3_l">Objectif</span><strong data-i18n="i3_v">Chef de projet IT, grand groupe</strong></div>
+              <div><i class="fa fa-globe"></i><span data-i18n="i4_l">Mobilité</span><strong data-i18n="i4_v">France et international</strong></div>
             </div>
           </div>
 
           <div class="about-side reveal">
-            <h3>Compétences</h3>
+            <h3 data-i18n="skills_h">Compétences</h3>
             <div class="skills" id="skills"></div>
 
-            <h3>Centres d'intérêt</h3>
+            <h3 data-i18n="int_h">Centres d'intérêt</h3>
             <div class="interests">
-              <div class="interest"><i class="fa fa-running"></i><span>Sport</span></div>
-              <div class="interest"><i class="fa fa-plane"></i><span>Voyages</span></div>
-              <div class="interest"><i class="fa fa-car"></i><span>Automobile</span></div>
-              <div class="interest"><i class="fa fa-gamepad"></i><span>Jeux vidéo</span></div>
-              <div class="interest"><i class="fa fa-music"></i><span>Piano</span></div>
+              <div class="interest"><i class="fa fa-running"></i><span data-i18n="int1">Sport</span></div>
+              <div class="interest"><i class="fa fa-plane"></i><span data-i18n="int2">Voyages</span></div>
+              <div class="interest"><i class="fa fa-car"></i><span data-i18n="int3">Automobile</span></div>
+              <div class="interest"><i class="fa fa-gamepad"></i><span data-i18n="int4">Jeux vidéo</span></div>
+              <div class="interest"><i class="fa fa-music"></i><span data-i18n="int5">Piano</span></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== Expérience ===== -->
-    <section class="section alt" id="experience">
+    <!-- ===== EDF ===== -->
+    <section class="section alt" id="edf">
       <div class="container">
         <div class="section-title reveal">
-          <span>Mon parcours</span>
-          <h2>Expériences professionnelles</h2>
+          <span data-i18n="edf_kicker">Expérience principale</span>
+          <h2 data-i18n="edf_title">Alternant chez EDF</h2>
+        </div>
+
+        <div class="edf-head reveal">
+          <div>
+            <span class="t-date"><i class="fa fa-calendar"></i> <span data-i18n="edf_date">Depuis août 2025 · contrat jusqu'en 2027</span></span>
+            <h3 data-i18n="edf_h3">Centrale nucléaire du Bugey</h3>
+            <p data-i18n="edf_intro">Au sein de l'équipe informatique du site, je mène des projets applicatifs qui sont d'abord déployés sur le site, avec une trajectoire d'extension au niveau national. J'interviens à la fois comme développeur, administrateur systèmes et chef de projet.</p>
+          </div>
+        </div>
+
+        <div class="pillars" id="pillars"></div>
+
+        <h3 class="sub-h reveal" data-i18n="edf_proj_h">Réalisations</h3>
+        <div class="cases" id="cases"></div>
+
+        <p class="confidential reveal"><i class="fa fa-lock"></i> <span data-i18n="confidential">Par souci de confidentialité, les noms de serveurs, adresses internes et détails du site ne sont pas communiqués. Les projets sont décrits de façon générale.</span></p>
+      </div>
+    </section>
+
+    <!-- ===== Parcours ===== -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-title reveal">
+          <span data-i18n="path_kicker">Mon parcours</span>
+          <h2 data-i18n="path_title">Expériences et formation</h2>
         </div>
 
         <div class="timeline" id="experience-list"></div>
 
         <div class="section-title sub reveal">
-          <h2>Formation</h2>
+          <h2 data-i18n="edu_title">Formation</h2>
         </div>
-        <div class="timeline small">
-          <div class="t-item reveal">
-            <div class="t-dot"></div>
-            <div class="t-card">
-              <span class="t-date"><i class="fa fa-calendar"></i> 2021 – aujourd'hui</span>
-              <h3>BUT Informatique</h3>
-              <p class="t-place">IUT 2 de Grenoble</p>
-              <p>Développement web et mobile, bases de données, programmation orientée objet, gestion de projet et travail en équipe.</p>
-            </div>
-          </div>
-          <div class="t-item reveal">
-            <div class="t-dot"></div>
-            <div class="t-card">
-              <span class="t-date"><i class="fa fa-calendar"></i> 2020 – 2021</span>
-              <h3>Bac STI2D, spécialité ITEC</h3>
-              <p class="t-place">Lycée de l'Oiselet, Bourgoin-Jallieu</p>
-              <p>Baccalauréat technologique obtenu avec mention Assez Bien.</p>
-            </div>
-          </div>
-        </div>
+        <div class="timeline small" id="education-list"></div>
       </div>
     </section>
 
     <!-- ===== Projets ===== -->
-    <section class="section" id="projects">
+    <section class="section alt" id="projects">
       <div class="container">
         <div class="section-title reveal">
-          <span>Ce que j'ai réalisé</span>
-          <h2>Mes projets</h2>
+          <span data-i18n="proj_kicker">Ce que j'ai réalisé</span>
+          <h2 data-i18n="proj_title">Projets académiques</h2>
         </div>
         <div class="projects-grid" id="projects-list"></div>
       </div>
     </section>
 
     <!-- ===== Contact ===== -->
-    <section class="section alt" id="contact">
+    <section class="section" id="contact">
       <div class="container">
         <div class="section-title reveal">
-          <span>Discutons</span>
-          <h2>Contactez-moi</h2>
+          <span data-i18n="contact_kicker">Discutons</span>
+          <h2 data-i18n="contact_title">Contactez-moi</h2>
         </div>
 
         <div class="contact-grid">
@@ -166,18 +214,18 @@
             </a>
             <div class="contact-card">
               <i class="fa fa-map-marker-alt"></i>
-              <div><span>Ville</span><strong>Grenoble, France</strong></div>
+              <div><span data-i18n="loc_l">Localisation</span><strong data-i18n="loc_v">France · ouvert à l'international</strong></div>
             </div>
           </div>
 
           <form class="contact-form reveal" id="contact-form">
             <div class="form-row">
-              <input type="text" id="nom" placeholder="Votre nom" required>
-              <input type="email" id="email" placeholder="Votre email" required>
+              <input type="text" id="nom" data-i18n-ph="ph_name" placeholder="Votre nom" required>
+              <input type="email" id="email" data-i18n-ph="ph_email" placeholder="Votre email" required>
             </div>
-            <input type="text" id="objet" placeholder="Objet" required>
-            <textarea id="message" rows="5" placeholder="Votre message" required></textarea>
-            <button type="submit" class="btn btn-primary">Envoyer <i class="fa fa-paper-plane"></i></button>
+            <input type="text" id="objet" data-i18n-ph="ph_subject" placeholder="Objet" required>
+            <textarea id="message" rows="5" data-i18n-ph="ph_msg" placeholder="Votre message" required></textarea>
+            <button type="submit" class="btn btn-primary"><span data-i18n="send">Envoyer</span> <i class="fa fa-paper-plane"></i></button>
           </form>
         </div>
       </div>
