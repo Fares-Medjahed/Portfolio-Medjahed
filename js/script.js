@@ -8,8 +8,8 @@ const EN = {
   nav_home: 'Home', nav_about: 'About', nav_edf: 'EDF', nav_path: 'Background', nav_projects: 'Projects', nav_contact: 'Contact',
   badge: 'Work-study at EDF · MAALSI Master, CESI',
   hero_p: 'Since August 2025, I have been on a work-study programme at EDF (Bugey nuclear power plant), leading application projects from requirements gathering to deployment. I am completing a Master’s in software architecture and information systems and I am looking for a role as an IT project manager or full-stack developer.',
-  btn_linkedin: 'My LinkedIn', btn_edf: 'My EDF experience',
-  float_a: 'Security & reliability', float_b: 'IT project management',
+  btn_cv: 'Download my CV', btn_linkedin: 'My LinkedIn', btn_edf: 'My EDF experience',
+  float_a: 'Security & reliability', float_b: 'IT project management', float_c: 'Full-stack developer',
   f1_t: 'Nuclear environment', f1_d: 'Security, reliability and compliance every day',
   f2_t: 'From site to national', f2_d: 'Solutions deployed locally and designed to scale',
   f3_t: 'Full cycle', f3_d: 'Requirements, development, deployment and operations',
@@ -30,7 +30,7 @@ const EN = {
   edf_date: 'Since August 2025 · contract until 2027',
   edf_h3: 'Bugey nuclear power plant',
   edf_intro: 'Within the site’s IT team, I lead application projects that are first deployed on site, with a path to national rollout. I work as a developer, systems administrator and project manager.',
-  edf_proj_h: 'Achievements',
+  edf_proj_h: 'Main mission', edf_sec_h: 'Secondary missions', cv_l: 'Résumé', cv_v: 'Download my CV (PDF)',
   chip1: 'Security', chip2: 'Reliability', chip3: 'Compliance',
   path_kicker: 'My background', path_title: 'Experience & education', edu_title: 'Education',
   proj_kicker: 'What I built', proj_title: 'Academic projects',
@@ -69,18 +69,18 @@ const skills = [
       { fr: 'Gestion des risques', en: 'Risk management' }
     ] },
   { title: { fr: 'Technique', en: 'Technical' },
-    items: ['Angular', 'NestJS', 'Node.js', 'PHP / Symfony', 'SQL / PL-SQL', 'Python',
+    items: ['Angular', 'NestJS', 'TypeORM', 'Node.js', 'PHP / Symfony', 'SQL / PL-SQL', 'Python',
       { fr: 'Administration Linux', en: 'Linux administration' },
       { fr: 'Administration de VM', en: 'VM administration' }, 'Java', 'C / C++'] },
-  { title: { fr: 'Outils', en: 'Tools' },
-    items: ['GitLab', 'Git', 'PM2', 'Power BI', 'Dynamics 365', 'Bootstrap', 'Flutter'] }
+  { title: { fr: 'Outils & gestion de projet', en: 'Tools & project management' },
+    items: ['Jira', 'GitLab', 'Git', { fr: 'Merge requests', en: 'Merge requests' }, { fr: 'Revue de code', en: 'Code review' }, 'PM2', 'Power BI', 'Dynamics 365', 'Bootstrap', 'Flutter'] }
 ];
 
 const pillars = [
   { icon: 'fa-tasks',
     title: { fr: 'Gestion de projet', en: 'Project management' },
     items: [
-      { fr: 'Recueil et reformulation des besoins auprès des utilisateurs', en: 'Gathering and clarifying user requirements' },
+      { fr: 'Réunions de projet et recueil du besoin auprès des utilisateurs', en: 'Project meetings and gathering user requirements' },
       { fr: 'Planification et suivi de l’avancement', en: 'Planning and progress tracking' },
       { fr: 'Communication avec les équipes et présentation aux responsables', en: 'Communicating with teams and presenting to managers' },
       { fr: 'Prise en compte de la sécurité dès le cadrage', en: 'Building security in from the scoping phase' }
@@ -88,9 +88,9 @@ const pillars = [
   { icon: 'fa-code',
     title: { fr: 'Développement', en: 'Development' },
     items: [
-      { fr: 'Applications web full-stack (Angular, NestJS, SQL, PHP)', en: 'Full-stack web applications (Angular, NestJS, SQL, PHP)' },
+      { fr: 'Applications web full-stack (Angular, NestJS, TypeORM, SQL, PHP)', en: 'Full-stack web applications (Angular, NestJS, TypeORM, SQL, PHP)' },
       { fr: 'Correction de bugs, évolutions et finitions d’interface', en: 'Bug fixing, enhancements and UI polish' },
-      { fr: 'Audits de sécurité et gestion du code sous GitLab', en: 'Security audits and code management with GitLab' }
+      { fr: 'Merge requests, lecture et revue de code sous GitLab', en: 'Merge requests, code reading and review on GitLab' }
     ], kpis: [] },
   { icon: 'fa-server',
     title: { fr: 'Administration systèmes', en: 'Systems administration' },
@@ -103,46 +103,50 @@ const pillars = [
 
 const cases = [
   { title: { fr: 'Application de gestion de formulaires', en: 'Forms management application' },
-    tags: ['Angular', 'NestJS', 'SQL'],
-    context: { fr: 'Application web de gestion de formulaires utilisée sur le site.', en: 'Web application for managing forms, used on site.' },
-    role: { fr: 'Développeur full-stack.', en: 'Full-stack developer.' },
+    tags: ['Angular', 'NestJS', 'TypeORM', 'SQL'],
+    context: { fr: 'Application web de gestion de formulaires utilisée sur le site. Coder cette application a été ma mission principale en alternance.', en: 'Web application for managing forms, used on site. Coding this application was my main work-study mission.' },
+    role: { fr: 'Développeur de l’application, de la réunion de cadrage à la mise en œuvre, en lien avec les utilisateurs.', en: 'Developer of the application, from the scoping meeting to implementation, working with the users.' },
     actions: [
-      { fr: 'Développement de nouvelles fonctionnalités et correction de bugs', en: 'Developed new features and fixed bugs' },
-      { fr: 'Finitions de l’interface utilisateur', en: 'Polished the user interface' },
-      { fr: 'Réalisation d’un audit de sécurité', en: 'Carried out a security audit' }
+      { fr: 'Participation aux réunions de projet et recueil du besoin auprès des utilisateurs', en: 'Took part in project meetings and gathered user requirements' },
+      { fr: 'Développement des fonctionnalités de l’application (Angular, NestJS, TypeORM, SQL)', en: 'Developed the application’s features (Angular, NestJS, TypeORM, SQL)' },
+      { fr: 'Module de signature électronique de documents PDF : PoC, audit, puis définition d’un nouveau workflow', en: 'Electronic signature module for PDF documents: proof of concept, audit, then definition of a new workflow' },
+      { fr: 'Finitions de l’interface utilisateur', en: 'Polished the user interface' }
     ],
     results: [
-      { fr: 'Application fiabilisée et sécurisée suite à l’audit', en: 'More reliable and secure application following the audit' }
-    ], kpis: [] },
-  { title: { fr: 'Signature électronique de documents PDF', en: 'Electronic signature of PDF documents' },
-    tags: ['PoC', 'Sécurité', 'Workflow'],
-    context: { fr: 'Besoin de signer électroniquement des documents PDF dans un cadre exigeant en matière de sécurité.', en: 'Need to electronically sign PDF documents within a security-demanding framework.' },
-    role: { fr: 'Porteur du projet, du proof of concept à la définition du workflow cible.', en: 'Project owner, from proof of concept to defining the target workflow.' },
-    actions: [
-      { fr: 'Réalisation d’un PoC', en: 'Built a proof of concept' },
-      { fr: 'Audit de la solution', en: 'Audited the solution' },
-      { fr: 'Définition d’un nouveau workflow de signature', en: 'Defined a new signature workflow' }
-    ],
-    results: [
-      { fr: 'PoC validé', en: 'Proof of concept validated' },
-      { fr: 'Nouveau workflow défini', en: 'New workflow defined' }
-    ], kpis: [] },
+      { fr: 'Preuve de concept de la signature électronique validée', en: 'Electronic signature proof of concept validated' },
+      { fr: 'Nouveau workflow de signature défini', en: 'New signature workflow defined' }
+    ], kpis: [] }
+];
+
+const casesSecondary = [
   { title: { fr: 'Diffusion documentaire', en: 'Document distribution' },
-    tags: ['GitLab', 'Excel', 'Nouveau projet'],
-    context: { fr: 'Nouveau projet de diffusion de documents, lancé avec son propre dépôt GitLab.', en: 'New document distribution project, launched with its own GitLab repository.' },
-    role: { fr: 'Développeur, au démarrage du projet.', en: 'Developer, at project kick-off.' },
+    tags: ['GitLab', 'Excel'],
+    context: { fr: 'Application de diffusion de documents déjà existante, dont le dépôt GitLab n’était pas organisé.', en: 'Existing document distribution application whose GitLab repository was not well organised.' },
+    role: { fr: 'Développeur.', en: 'Developer.' },
     actions: [
-      { fr: 'Mise en place du projet et de son dépôt GitLab dédié', en: 'Set up the project and its dedicated GitLab repository' },
-      { fr: 'Développement d’un export Excel des documents', en: 'Developed an Excel export of documents' }
+      { fr: 'Ajout d’une fonctionnalité d’export Excel', en: 'Added an Excel export feature' },
+      { fr: 'Remise au propre du dépôt GitLab', en: 'Cleaned up and reorganised the GitLab repository' }
     ],
     results: [
-      { fr: 'Projet lancé sur des bases structurées', en: 'Project launched on structured foundations' },
-      { fr: 'Fonctionnalité d’export Excel développée', en: 'Excel export feature developed' }
+      { fr: 'Nouvelle fonctionnalité d’export disponible', en: 'New export feature available' },
+      { fr: 'Dépôt GitLab propre et structuré', en: 'Clean, well-structured GitLab repository' }
+    ], kpis: [] },
+  { title: { fr: 'Évolutions et qualité du code', en: 'Enhancements and code quality' },
+    tags: ['GitLab', 'Merge requests'],
+    context: { fr: 'Contributions régulières au code des applications du site.', en: 'Regular contributions to the code of the site’s applications.' },
+    role: { fr: 'Développeur, au sein de l’équipe.', en: 'Developer, within the team.' },
+    actions: [
+      { fr: 'Implémentation de nouvelles fonctionnalités', en: 'Implemented new features' },
+      { fr: 'Correction de bugs', en: 'Fixed bugs' },
+      { fr: 'Merge requests, lecture et revue de code', en: 'Merge requests, code reading and review' }
+    ],
+    results: [
+      { fr: 'Code partagé et relu dans un cadre collaboratif', en: 'Code shared and reviewed in a collaborative workflow' }
     ], kpis: [] },
   { title: { fr: 'Administration des serveurs et VM du site', en: 'Site server and VM administration' },
     tags: ['Linux', 'PM2', 'Node.js'],
     context: { fr: 'Environnement hébergeant l’ensemble des applications du site, dont une application fournie par un prestataire externe.', en: 'Environment hosting all of the site’s applications, including one supplied by an external vendor.' },
-    role: { fr: 'Administrateur des serveurs et des machines virtuelles (périmètre infrastructure uniquement, pas le code de l’application du prestataire).', en: 'Administrator of the servers and virtual machines (infrastructure scope only, not the vendor application’s code).' },
+    role: { fr: 'Administrateur des serveurs et des machines virtuelles (infrastructure uniquement, pas le code de l’application du prestataire).', en: 'Administrator of the servers and virtual machines (infrastructure only, not the vendor application’s code).' },
     actions: [
       { fr: 'Déploiement des applications et démarrage des services (PM2, démons Node.js)', en: 'Deployed applications and started services (PM2, Node.js daemons)' },
       { fr: 'Gestion des droits d’accès', en: 'Managed access rights' },
@@ -310,15 +314,17 @@ function render() {
     `<div class="pillar-icon"><i class="fa ${p.icon}"></i></div><h4>${esc(L(p.title))}</h4>${listHtml(p.items)}${kpiHtml(p.kpis)}`)));
 
   // EDF : réalisations (Contexte / Rôle / Actions / Résultats)
-  const cs = $('#cases'); cs.innerHTML = '';
-  cases.forEach(c => cs.appendChild(el('article', 'case reveal visible',
-    `<div class="case-head"><h4>${esc(L(c.title))}</h4><div class="tags">${tagsHtml(c.tags)}</div></div>
+  const caseHtml = c => `<div class="case-head"><h4>${esc(L(c.title))}</h4><div class="tags">${tagsHtml(c.tags)}</div></div>
      <div class="case-grid">
        <div><h5>${esc(tr('lbl_context'))}</h5><p>${esc(L(c.context))}</p></div>
        <div><h5>${esc(tr('lbl_role'))}</h5><p>${esc(L(c.role))}</p></div>
        <div><h5>${esc(tr('lbl_actions'))}</h5>${listHtml(c.actions)}</div>
        <div><h5>${esc(tr('lbl_results'))}</h5>${listHtml(c.results)}${kpiHtml(c.kpis)}</div>
-     </div>`)));
+     </div>`;
+  const cs = $('#cases'); cs.innerHTML = '';
+  cases.forEach(c => cs.appendChild(el('article', 'case featured reveal visible', caseHtml(c))));
+  const cs2 = $('#cases-secondary'); cs2.innerHTML = '';
+  casesSecondary.forEach(c => cs2.appendChild(el('article', 'case reveal visible', caseHtml(c))));
 
   // Parcours
   const exp = $('#experience-list'); exp.innerHTML = '';
@@ -375,8 +381,8 @@ function applyLang() {
   document.querySelectorAll('[data-i18n-ph]').forEach(n => { n.setAttribute('placeholder', tr(n.dataset.i18nPh)); });
   $('#lang-btn').textContent = lang === 'fr' ? 'EN' : 'FR';
   document.title = lang === 'fr'
-    ? 'Farès Medjahed – Futur chef de projet IT | Alternant EDF'
-    : 'Farès Medjahed – Future IT Project Manager | EDF work-study';
+    ? 'Farès Medjahed – Développeur full-stack | Alternant EDF'
+    : 'Farès Medjahed – Full-stack Developer | EDF work-study';
   render();
   setTyped();
 }
@@ -461,8 +467,8 @@ if ('IntersectionObserver' in window) {
 let typedInstance = null;
 function setTyped() {
   const strings = lang === 'fr'
-    ? ['Futur chef de projet IT', 'Développeur full-stack', 'Administrateur systèmes', 'Alternant chez EDF']
-    : ['Future IT project manager', 'Full-stack developer', 'Systems administrator', 'Work-study at EDF'];
+    ? ['Développeur full-stack', 'Développeur web', 'Administrateur systèmes', 'Alternant chez EDF']
+    : ['Full-stack developer', 'Web developer', 'Systems administrator', 'Work-study at EDF'];
   if (typedInstance) typedInstance.destroy();
   if (window.Typed) {
     typedInstance = new Typed('.typing', { strings, typeSpeed: 60, backSpeed: 35, backDelay: 1600, loop: true });

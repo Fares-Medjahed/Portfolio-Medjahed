@@ -350,3 +350,23 @@ a.contact-card:hover { transform: translateY(-4px); border-color: var(--accent);
   .modal-gallery.g2 { grid-template-columns: 1fr; }
   .modal-body { padding: 22px 20px 26px; }
 }
+
+/* ---------- Étiquettes autour de la photo ---------- */
+.card-c { top: 46%; right: -44px; animation-delay: .8s; }
+.card-a { top: 6%; left: -44px; }
+.card-b { bottom: 6%; left: -30px; right: auto; }
+@media (max-width: 960px) {
+  .card-c { right: -16px; } .card-a { left: -16px; } .card-b { left: -10px; }
+}
+
+/* ---------- Centres d'intérêt compacts, alignés sur une ligne ---------- */
+.interests { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.interest { padding: 12px 4px; border-radius: 12px; }
+.interest i { font-size: 1.1rem; margin-bottom: 4px; }
+.interest span { font-size: .72rem; font-weight: 600; white-space: nowrap; }
+
+/* ---------- Réalisations EDF ---------- */
+.case.featured { border-color: rgba(34, 211, 197, .4); box-shadow: 0 0 0 1px rgba(34, 211, 197, .12), var(--shadow); }
+.cases.secondary { grid-template-columns: 1fr; }
+.sub-h + .cases { margin-bottom: 54px; }
+.hero-buttons .btn { padding: 13px 22px; }
