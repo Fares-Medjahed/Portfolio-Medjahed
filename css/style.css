@@ -370,3 +370,9 @@ a.contact-card:hover { transform: translateY(-4px); border-color: var(--accent);
 .cases.secondary { grid-template-columns: 1fr; }
 .sub-h + .cases { margin-bottom: 54px; }
 .hero-buttons .btn { padding: 13px 22px; }
+
+/* ---------- Pastilles d'accueil ---------- */
+.badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 22px; }
+.badges .badge { margin-bottom: 0; }
+.badge-intl { background: rgba(108, 140, 255, .12); border-color: rgba(108, 140, 255, .35); color: #b9c7ff; }
+.badge-intl i { font-size: .85rem; animation: none; }
