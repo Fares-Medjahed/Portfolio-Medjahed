@@ -1,0 +1,16 @@
+{
+  "name": "portfolio-chat",
+  "private": true,
+  "type": "module",
+  "description": "Proxy Cloudflare Worker du chatbot IA du portfolio de Farès Medjahed",
+  "scripts": {
+    "dev": "wrangler dev",
+    "local": "node scripts/dev-server.mjs",
+    "deploy": "wrangler deploy",
+    "test": "node --test test/*.test.mjs",
+    "live-test": "node scripts/live-test.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

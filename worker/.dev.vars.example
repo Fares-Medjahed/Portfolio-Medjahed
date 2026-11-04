@@ -1,0 +1,7 @@
+# Copiez ce fichier en ".dev.vars" (ignoré par git) pour le développement local.
+# En production, utilisez : npx wrangler secret put NOM_DU_SECRET
+GROQ_API_KEY=gsk_...
+GEMINI_API_KEY=AIza...
+# OPENROUTER_API_KEY=sk-or-...   (optionnel, et ajoutez ",openrouter" à PROVIDERS)
+IP_SALT=une-chaine-aleatoire
+ALLOWED_ORIGINS=https://fares-medjahed.github.io,http://localhost:8080,http://127.0.0.1:8080

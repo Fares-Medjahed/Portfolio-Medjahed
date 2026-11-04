@@ -1,0 +1,26 @@
+# Configuration du Worker Cloudflare (plan gratuit, sans carte bancaire).
+name = "portfolio-chat"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+[vars]
+# Sites autorisés à appeler le chatbot (séparés par des virgules).
+ALLOWED_ORIGINS = "https://fares-medjahed.github.io"
+# Ordre des fournisseurs : le premier est essayé d'abord, puis le suivant en cas d'erreur/quota.
+PROVIDERS = "groq,gemini"
+# Modèles : vérifiez les noms et quotas actuels dans la console de chaque fournisseur.
+GROQ_MODEL = "llama-3.3-70b-versatile"
+GEMINI_MODEL = "gemini-2.5-flash"
+# Limites par visiteur (anonymisé).
+RATE_PER_MIN = "10"
+RATE_PER_DAY = "30"
+
+# Optionnel mais recommandé : compteur journalier fiable + cache (KV gratuit).
+# 1) npx wrangler kv namespace create RATE   2) collez l'id ci-dessous 3) décommentez.
+# [[kv_namespaces]]
+# binding = "RATE"
+# id = "COLLEZ_ICI_L_ID_DU_NAMESPACE"
+
+# Secrets (jamais dans ce fichier) : npx wrangler secret put GROQ_API_KEY
+#                                    npx wrangler secret put GEMINI_API_KEY
+#                                    npx wrangler secret put IP_SALT   (une chaîne aléatoire)

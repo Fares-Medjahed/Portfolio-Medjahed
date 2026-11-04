@@ -1,0 +1,7 @@
+# Secrets et fichiers locaux : ne jamais committer
+.dev.vars
+.env
+.env.*
+!.env.example
+node_modules/
+.wrangler/
