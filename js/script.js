@@ -7,8 +7,7 @@ const EN = {
   skip: 'Skip to content',
   nav_home: 'Home', nav_about: 'About', nav_edf: 'EDF', nav_path: 'Background', nav_projects: 'Projects', nav_contact: 'Contact',
   badge: 'Work-study at EDF · MAALSI Master, CESI',
-  hero_lead: 'I turn business needs into reliable software solutions, in environments where security is non-negotiable.',
-  hero_p: 'Since August 2025, I have been on a work-study programme at EDF (Bugey nuclear power plant), leading application projects from requirements gathering to deployment. I am completing a Master’s in software architecture and information systems and aiming for an IT project manager role in a large group.',
+  hero_p: 'Since August 2025, I have been on a work-study programme at EDF (Bugey nuclear power plant), leading application projects from requirements gathering to deployment. I am completing a Master’s in software architecture and information systems and I am looking for a role as an IT project manager or full-stack developer.',
   btn_linkedin: 'My LinkedIn', btn_edf: 'My EDF experience',
   float_a: 'Security & reliability', float_b: 'IT project management',
   f1_t: 'Nuclear environment', f1_d: 'Security, reliability and compliance every day',
@@ -19,11 +18,11 @@ const EN = {
   about_h3: 'A hybrid profile: technical enough to challenge, project-minded enough to deliver',
   about_p1: 'A student at CESI engineering school (MAALSI Master’s, level 7) after a Bachelor’s in Computer Science, I am building a profile at the crossroads of development, systems and project management: I understand the solutions I manage because I have also built and deployed them.',
   about_p2: 'At EDF, I learned to work with business users, vendors and security teams, with one requirement: what is delivered must be reliable, safe and maintainable.',
-  about_p3: 'My goal: to become an IT project manager in a large group, then move into team management, ideally with a first international experience.',
+  about_p3: 'My goal: to work as an IT project manager or full-stack developer, then move into team management, ideally with a first international experience.',
   about_p4: 'Outside work, <strong>sport</strong> and <strong>travel</strong> keep me balanced and fuel my openness to other cultures. I also enjoy cars, video games and piano.',
   i1_l: 'Education', i1_v: 'MAALSI Master’s, CESI',
   i2_l: 'Current role', i2_v: 'Work-study at EDF (2025–2027)',
-  i3_l: 'Goal', i3_v: 'IT project manager, large group',
+  i3_l: 'Goal', i3_v: 'IT project manager / Full-stack',
   i4_l: 'Mobility', i4_v: 'France and international',
   skills_h: 'Skills', int_h: 'Interests',
   int1: 'Sport', int2: 'Travel', int3: 'Cars', int4: 'Video games', int5: 'Piano',
@@ -32,7 +31,7 @@ const EN = {
   edf_h3: 'Bugey nuclear power plant',
   edf_intro: 'Within the site’s IT team, I lead application projects that are first deployed on site, with a path to national rollout. I work as a developer, systems administrator and project manager.',
   edf_proj_h: 'Achievements',
-  confidential: 'For confidentiality reasons, server names, internal addresses and site details are not disclosed. Projects are described in general terms.',
+  chip1: 'Security', chip2: 'Reliability', chip3: 'Compliance',
   path_kicker: 'My background', path_title: 'Experience & education', edu_title: 'Education',
   proj_kicker: 'What I built', proj_title: 'Academic projects',
   contact_kicker: 'Let’s talk', contact_title: 'Contact me',
@@ -159,36 +158,57 @@ const experiences = [
     date: { fr: '2024', en: '2024' },
     title: { fr: 'Stage chez Rio Tinto', en: 'Internship at Rio Tinto' },
     place: 'Rio Tinto',
+    thumb: 'images/riotinto.jpg',
     summary: { fr: 'Optimisation du CRM Dynamics 365 et automatisation du suivi financier des projets avec Power BI.', en: 'Optimised the Dynamics 365 CRM and automated project financial tracking with Power BI.' },
-    details: [
-      { fr: 'Optimisation du CRM Dynamics 365 pour ses utilisateurs : développement de nouvelles fonctionnalités, correction de bugs et mise à jour des éléments obsolètes.', en: 'Optimised the Dynamics 365 CRM for its users: new features, bug fixes and updates of obsolete elements.' },
-      { fr: 'Création de rapports Power BI destinés aux chefs de projet, afin d’automatiser le suivi financier des projets.', en: 'Built Power BI reports for project managers to automate the financial tracking of projects.' },
-      { fr: 'Résultat : des rapports plus précis et plus rapides à produire.', en: 'Outcome: more accurate reports that are faster to produce.' }
+    images: ['images/riotinto.jpg', 'images/powerbi.jpg'],
+    sections: [
+      { h: { fr: 'Contexte', en: 'Context' },
+        p: { fr: 'Stage au sein de Rio Tinto, groupe minier mondial, auprès des équipes projets.', en: 'Internship at Rio Tinto, a global mining group, working with the project teams.' } },
+      { h: { fr: 'Missions', en: 'Missions' },
+        ul: [
+          { fr: 'Optimiser l’utilisation du CRM Dynamics 365 : nouvelles fonctionnalités, correction de bugs, mise à jour des éléments obsolètes.', en: 'Optimise the use of the Dynamics 365 CRM: new features, bug fixes, updating obsolete elements.' },
+          { fr: 'Créer des rapports Power BI pour les chefs de projet afin d’automatiser le suivi financier des projets.', en: 'Build Power BI reports for project managers to automate the financial tracking of projects.' }
+        ] },
+      { h: { fr: 'Résultats', en: 'Results' },
+        ul: [
+          { fr: 'Suivi financier des projets automatisé', en: 'Automated project financial tracking' },
+          { fr: 'Rapports plus précis et plus rapides à produire', en: 'More accurate reports, faster to produce' }
+        ] }
     ],
-    tags: ['Power BI', 'Dynamics 365', 'Business Intelligence'],
-    image: 'images/portfolio/5e18519a6100003f50f2db6f.png'
+    tags: ['Power BI', 'Dynamics 365', 'Business Intelligence']
   },
   {
     date: { fr: '2023', en: '2023' },
     title: { fr: 'Stage chez Mafelec', en: 'Internship at Mafelec' },
     place: { fr: 'Mafelec, Grenoble', en: 'Mafelec, Grenoble' },
+    thumb: 'images/portfolio/mafelec_1.jpg',
     summary: { fr: 'Solution d’export automatique de rapports business depuis l’ERP IFS : PL/SQL et scripts Python.', en: 'Automatic business-report export solution from the IFS ERP: PL/SQL and Python scripts.' },
-    details: [
-      { fr: 'Mafelec est une entreprise d’électronique grenobloise fondée en 1947, active dans le secteur industriel.', en: 'Mafelec is an electronics company founded in Grenoble in 1947, active in the industrial sector.' },
-      { fr: 'Mission : résoudre un problème d’export de rapports business dû à un dysfonctionnement logiciel, en permettant l’export directement sur les postes des utilisateurs.', en: 'Mission: fix a business-report export issue caused by a software malfunction, by enabling export directly to users’ workstations.' },
-      { fr: 'Analyse des rapports et des données dans l’ERP IFS, puis écriture de requêtes PL/SQL pour les extraire.', en: 'Analysed the reports and data in the IFS ERP, then wrote PL/SQL queries to extract them.' },
-      { fr: 'Développement d’un script Python (pandas) exportant les données en Excel, planifié chaque jour ou chaque semaine selon les rapports.', en: 'Developed a Python (pandas) script exporting data to Excel, scheduled daily or weekly depending on the report.' },
-      { fr: 'Plusieurs rapports exportés avec succès : précision, rigueur et confiance en soi renforcées.', en: 'Several reports exported successfully: strengthened accuracy, rigour and self-confidence.' }
+    images: ['images/portfolio/mafelec_1.jpg'],
+    sections: [
+      { h: { fr: 'Contexte', en: 'Context' },
+        p: { fr: 'Mafelec est une entreprise d’électronique grenobloise fondée en 1947, active dans le secteur industriel. Un dysfonctionnement logiciel empêchait l’export des rapports business.', en: 'Mafelec is an electronics company founded in Grenoble in 1947, active in the industrial sector. A software malfunction prevented business reports from being exported.' } },
+      { h: { fr: 'Mission', en: 'Mission' },
+        p: { fr: 'Permettre l’export des rapports directement sur les postes des utilisateurs.', en: 'Enable reports to be exported directly to users’ workstations.' } },
+      { h: { fr: 'Actions', en: 'Actions' },
+        ul: [
+          { fr: 'Analyse des rapports et des données dans l’ERP IFS', en: 'Analysed the reports and data in the IFS ERP' },
+          { fr: 'Écriture de requêtes PL/SQL pour extraire les données', en: 'Wrote PL/SQL queries to extract the data' },
+          { fr: 'Script Python (pandas) exportant les données en Excel, planifié chaque jour ou chaque semaine', en: 'Python (pandas) script exporting data to Excel, scheduled daily or weekly' }
+        ] },
+      { h: { fr: 'Résultats', en: 'Results' },
+        ul: [
+          { fr: 'Plusieurs rapports exportés avec succès', en: 'Several reports exported successfully' },
+          { fr: 'Précision, rigueur et confiance en soi renforcées', en: 'Strengthened accuracy, rigour and self-confidence' }
+        ] }
     ],
-    tags: ['SQL', 'PL/SQL', 'Python', 'pandas', 'ERP IFS'],
-    image: 'images/portfolio/mafelec_1.jpg'
+    tags: ['SQL', 'PL/SQL', 'Python', 'pandas', 'ERP IFS']
   },
   {
     date: { fr: '2022', en: '2022' },
     title: { fr: 'Job étudiant', en: 'Student job' },
     place: 'Décathlon',
     summary: { fr: 'Premier contact avec le monde professionnel : un mois au sein de l’équipe Décathlon.', en: 'First contact with the working world: one month with the Decathlon team.' },
-    details: [], tags: [], image: null
+    images: [], sections: [], tags: []
   }
 ];
 
@@ -208,6 +228,7 @@ const education = [
 
 const projects = [
   { title: { fr: 'Le Dahu', en: 'Le Dahu' },
+    team: { fr: 'Équipe de 8', en: 'Team of 8' },
     sub: { fr: 'Application mobile et site web pour une association étudiante', en: 'Mobile app and website for a student association' },
     image: 'images/portfolio/dahu1.jpeg',
     short: { fr: 'Application mobile et site web avec forum pour une association étudiante de Grenoble, en équipe de 8.', en: 'Mobile app and website with a forum for a Grenoble student association, in a team of 8.' },
@@ -218,6 +239,7 @@ const projects = [
     ],
     tags: ['Angular', 'HTML', 'CSS', 'PHP Symfony', 'JavaScript'] },
   { title: 'InstruMenthol',
+    team: { fr: 'Équipe de 6', en: 'Team of 6' },
     sub: { fr: 'Application de vente aux enchères d’instrumentales', en: 'Instrumental auction application' },
     image: 'images/portfolio/instru.png',
     short: { fr: 'Plateforme d’enchères reliant beatmakers et chanteurs amateurs, en équipe de 6.', en: 'Auction platform connecting beatmakers and amateur singers, in a team of 6.' },
@@ -228,6 +250,7 @@ const projects = [
     ],
     tags: ['PHP Symfony', 'MariaDB', 'Bootstrap', 'JavaScript'] },
   { title: 'R-JUMP 3000',
+    team: { fr: 'Équipe de 4', en: 'Team of 4' },
     sub: { fr: 'Jeu vidéo 2D', en: '2D video game' },
     image: 'images/portfolio/Pygame.png',
     short: { fr: 'Jeu de plateforme 2D où un robot saute par-dessus des obstacles, en équipe de 4.', en: '2D platform game where a robot jumps over obstacles, in a team of 4.' },
@@ -245,6 +268,7 @@ const projects = [
     ],
     tags: ['Flutter', 'Dart'] },
   { title: { fr: 'Site web d’entreprise', en: 'Company website' },
+    team: { fr: 'Équipe de 3', en: 'Team of 3' },
     sub: { fr: 'Premier projet web, en trinôme', en: 'First web project, in a trio' },
     image: 'images/portfolio/hardis.png',
     short: { fr: 'Mon premier site web, créé en trinôme pour une entreprise du numérique.', en: 'My first website, built in a trio for a digital company.' },
@@ -299,29 +323,32 @@ function render() {
   // Parcours
   const exp = $('#experience-list'); exp.innerHTML = '';
   experiences.forEach(e => {
-    const hasMore = e.details.length > 0;
+    const hasMore = e.sections.length > 0;
     const item = el('div', 't-item reveal visible');
     item.innerHTML = `
       <div class="t-dot"></div>
       <div class="t-card ${hasMore ? 'clickable' : ''}">
-        <span class="t-date"><i class="fa fa-calendar"></i> ${esc(L(e.date))}</span>
-        <h3>${esc(L(e.title))}</h3>
-        <p class="t-place">${esc(L(e.place))}</p>
-        <p>${esc(L(e.summary))}</p>
-        ${e.tags.length ? `<div class="tags">${tagsHtml(e.tags)}</div>` : ''}
-        ${hasMore ? `<button class="t-more" type="button">${esc(tr('more'))} <i class="fa fa-arrow-right"></i></button>` : ''}
+        ${e.thumb ? `<div class="t-thumb"><img src="${e.thumb}" alt="${esc(L(e.place))}"></div>` : ''}
+        <div class="t-content">
+          <span class="t-date"><i class="fa fa-calendar"></i> ${esc(L(e.date))}</span>
+          <h3>${esc(L(e.title))}</h3>
+          <p class="t-place">${esc(L(e.place))}</p>
+          <p>${esc(L(e.summary))}</p>
+          ${e.tags.length ? `<div class="tags">${tagsHtml(e.tags)}</div>` : ''}
+          ${hasMore ? `<button class="t-more" type="button">${esc(tr('more'))} <i class="fa fa-arrow-right"></i></button>` : ''}
+        </div>
       </div>`;
     if (hasMore) $('.t-card', item).addEventListener('click', () =>
-      openModal({ title: L(e.title), sub: L(e.place), image: e.image, text: [e.summary, ...e.details].map(L), tags: e.tags, list: true }));
+      openModal({ title: L(e.title), sub: L(e.place), images: e.images, sections: e.sections, tags: e.tags }));
     exp.appendChild(item);
   });
 
   // Formation
   const edu = $('#education-list'); edu.innerHTML = '';
   education.forEach(e => edu.appendChild(el('div', 't-item reveal visible',
-    `<div class="t-dot"></div><div class="t-card">
+    `<div class="t-dot"></div><div class="t-card"><div class="t-content">
       <span class="t-date"><i class="fa fa-calendar"></i> ${esc(L(e.date))}</span>
-      <h3>${esc(L(e.title))}</h3><p class="t-place">${esc(L(e.place))}</p><p>${esc(L(e.text))}</p></div>`)));
+      <h3>${esc(L(e.title))}</h3><p class="t-place">${esc(L(e.place))}</p><p>${esc(L(e.text))}</p></div></div>`)));
 
   // Projets académiques
   const pr = $('#projects-list'); pr.innerHTML = '';
@@ -334,7 +361,7 @@ function render() {
         <h3>${esc(L(p.title))}</h3><p>${esc(L(p.short))}</p>
         <div class="tags">${tagsHtml(p.tags.slice(0, 3))}</div>
       </div>`;
-    card.addEventListener('click', () => openModal({ title: L(p.title), sub: L(p.sub), image: p.image, text: p.text.map(L), tags: p.tags }));
+    card.addEventListener('click', () => openModal({ title: L(p.title), sub: L(p.sub), images: [p.image], meta: p.team ? [p.team] : [], sections: [{ h: { fr: 'Le projet', en: 'The project' }, ul: null, p: p.text }], tags: p.tags }));
     pr.appendChild(card);
   });
 }
@@ -363,25 +390,25 @@ $('#lang-btn').addEventListener('click', () => {
    MODALE
    ===================================================================== */
 const modal = $('#modal');
-function openModal({ title, sub, image, text, tags, list }) {
+function sectionHtml(sec) {
+  const body = sec.ul ? listHtml(sec.ul)
+    : Array.isArray(sec.p) ? sec.p.map(x => `<p>${esc(L(x))}</p>`).join('')
+    : `<p>${esc(L(sec.p))}</p>`;
+  return `<div class="m-sec"><h4>${esc(L(sec.h))}</h4>${body}</div>`;
+}
+function openModal({ title, sub, images, meta, sections, tags }) {
   $('#modal-title').textContent = title;
   $('#modal-sub').textContent = sub || '';
-  const img = $('#modal-image');
-  if (image) { img.src = image; img.alt = title; img.style.display = ''; } else { img.style.display = 'none'; }
-  const box = $('#modal-text');
-  box.innerHTML = '';
-  if (list) {
-    box.appendChild(el('p', '', esc(text[0])));
-    const ul = el('ul');
-    text.slice(1).forEach(t => ul.appendChild(el('li', '', esc(t))));
-    box.appendChild(ul);
-  } else {
-    text.forEach(t => box.appendChild(el('p', '', esc(t))));
-  }
+  const gal = $('#modal-gallery');
+  gal.innerHTML = (images || []).map(src => `<img src="${src}" alt="${esc(title)}">`).join('');
+  gal.className = 'modal-gallery g' + (images || []).length;
+  $('#modal-meta').innerHTML = (meta || []).map(m => `<span class="meta"><i class="fa fa-users"></i> ${esc(L(m))}</span>`).join('');
+  $('#modal-text').innerHTML = (sections || []).map(sectionHtml).join('');
   $('#modal-tags').innerHTML = tagsHtml(tags || []);
   modal.classList.add('open');
   modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
+  $('.modal-box').scrollTop = 0;
 }
 function closeModal() {
   modal.classList.remove('open');

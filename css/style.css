@@ -301,3 +301,52 @@ a.contact-card:hover { transform: translateY(-4px); border-color: var(--accent);
   .facts-grid { grid-template-columns: 1fr; }
   .nav { top: 72px; }
 }
+
+/* ---------- EDF : bandeau avec logo et photo ---------- */
+.edf-head { max-width: 1040px; display: grid; grid-template-columns: 1.25fr .75fr; gap: 0; padding: 0; overflow: hidden; border-left: 0; background: var(--card); }
+.edf-text { padding: 34px 36px; }
+.edf-logo { display: block; width: fit-content; background: #fff; border-radius: 14px; padding: 12px 22px; margin-bottom: 22px; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+.edf-logo img { height: 46px; width: auto; display: block; }
+.edf-head h3 { font-size: 1.8rem; margin: 8px 0 12px; }
+.chips-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.chips-row .chip { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; font-size: .9rem; background: rgba(34,211,197,.1); color: var(--accent); border: 1px solid rgba(34,211,197,.25); }
+.edf-photo { position: relative; min-height: 260px; }
+.edf-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.edf-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, var(--card) 0%, rgba(21,28,56,0) 35%); }
+
+/* ---------- Cartes parcours avec vignette ---------- */
+.t-card { display: flex; gap: 24px; align-items: flex-start; }
+.t-content { flex: 1; min-width: 0; }
+.t-thumb { flex: 0 0 190px; height: 130px; border-radius: 14px; overflow: hidden; background: #fff; border: 1px solid var(--border); }
+.t-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.t-card:hover .t-thumb img { transform: scale(1.08); }
+
+/* ---------- Fenêtre de détail améliorée ---------- */
+.modal-box { width: min(820px, 100%); }
+.modal-gallery { display: grid; gap: 2px; background: var(--bg); }
+.modal-gallery:empty { display: none; }
+.modal-gallery.g2 { grid-template-columns: 1fr 1fr; }
+.modal-gallery img { width: 100%; height: 100%; max-height: 280px; object-fit: cover; background: #fff; }
+.modal-gallery.g1 img { max-height: 320px; }
+.modal-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+.modal-meta:empty { display: none; }
+.meta { display: inline-flex; align-items: center; gap: 8px; padding: 5px 13px; border-radius: 999px; background: rgba(108,140,255,.14); color: #c4d0ff; font-size: .82rem; font-weight: 600; }
+.m-sec { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--border); }
+.m-sec:first-of-type { margin-top: 18px; }
+.m-sec h4 { color: var(--accent); font-size: .78rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+.m-sec p { color: var(--muted); margin-bottom: 8px; }
+.m-sec ul { color: var(--muted); padding-left: 20px; }
+.m-sec li { margin-bottom: 6px; }
+
+@media (max-width: 960px) {
+  .edf-head { grid-template-columns: 1fr; }
+  .edf-photo { min-height: 200px; order: -1; }
+  .edf-photo::after { background: linear-gradient(0deg, var(--card) 0%, rgba(21,28,56,0) 45%); }
+}
+@media (max-width: 760px) {
+  .edf-text { padding: 24px 20px; }
+  .t-card { flex-direction: column; }
+  .t-thumb { flex: none; width: 100%; height: 170px; }
+  .modal-gallery.g2 { grid-template-columns: 1fr; }
+  .modal-body { padding: 22px 20px 26px; }
+}
