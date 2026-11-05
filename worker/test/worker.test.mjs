@@ -53,7 +53,7 @@ afterEach(() => { globalThis.fetch = realFetch; });
 
 test('le prompt système contient les règles et la base de connaissances', () => {
   const p = buildSystemPrompt();
-  for (const s of ['UNIQUEMENT', 'première personne', 'assistant IA', 'confidentielle', 'MAALSI', 'Rio Tinto', 'Mafelec', 'Fares.medjahed2@gmail.com', 'ni salaire', '06 36 44 23 46', 'L\'Isle-d\'Abeau', 'perfectionniste', 'SAVOIR-ÊTRE']) {
+  for (const s of ['UNIQUEMENT', 'première personne', 'assistant IA', 'confidentielle', 'MAALSI', 'Rio Tinto', 'Mafelec', 'Fares.medjahed2@gmail.com', 'ni salaire', '06 36 44 23 46', 'L\'Isle-d\'Abeau', 'perfectionniste', 'SAVOIR-ÊTRE', 'Ce chat ne sert qu\'à présenter']) {
     assert.ok(p.includes(s), `prompt sans « ${s} »`);
   }
 });
@@ -198,4 +198,20 @@ test('flux découpé en morceaux (dernier morceau = [DONE] seul) : le flux se te
   const res = await call([user('Question flux découpé ?')], { ip: '7.7.7.7' });
   const text = await Promise.race([textOf(res), new Promise((_, rej) => setTimeout(() => rej(new Error('flux bloqué')), 2000))]);
   assert.equal(text, 'Réponse en plusieurs morceaux séparés, assez longue.');
+});
+
+test('hors-sujet évident (« 1+1 », McDo, météo, code) : réponse fixe sans appeler l’IA', async () => {
+  mockProviders({ groq: okTokens() });
+  for (const q of ['1+1', 'Combien font 2 x 3 ?', 'Tu veux aller au McDo ?', 'Quelle est la météo demain ?', 'Écris-moi une fonction de tri en Python']) {
+    const res = await call([user(q)], { ip: '8.8.8.8', env: { ...baseEnv, RATE_PER_MIN: '100' } });
+    assert.equal(res.headers.get('x-source'), 'filter', q);
+    assert.match(await textOf(res), /Ce chat ne sert qu’à présenter le parcours de Farès Medjahed/);
+  }
+  assert.equal(providerCalls.length, 0);
+});
+
+test('une vraie question sur le parcours n’est pas bloquée par le filtre hors-sujet', async () => {
+  mockProviders({ groq: okTokens('Réponse sur le parcours, assez longue pour passer le test de cache.') });
+  const res = await call([user('Quelles sont tes compétences en PHP ?')], { ip: '8.8.4.4' });
+  assert.equal(res.headers.get('x-source'), 'groq');
 });

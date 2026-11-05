@@ -5,7 +5,7 @@ import { buildSystemPrompt } from './prompt.js';
 import { askWithFallback, normalizeStream, textToStream, AllProvidersFailed } from './providers.js';
 import { checkRate, anonymize } from './ratelimit.js';
 import {
-  HttpError, LIMITS, validateMessages, looksLikeInjection, INJECTION_REPLY, normalizeQuestion, sha256Hex
+  HttpError, LIMITS, validateMessages, looksLikeInjection, INJECTION_REPLY, looksOffTopic, OFFTOPIC_REPLY, normalizeQuestion, sha256Hex
 } from './guard.js';
 
 const DEFAULT_ORIGINS = 'https://fares-medjahed.github.io';
@@ -78,6 +78,11 @@ export default {
       // 3) Tentatives évidentes de manipulation : réponse fixe, aucun token consommé
       if (looksLikeInjection(question)) {
         return new Response(textToStream(INJECTION_REPLY), { headers: { ...sseHeaders, 'X-Source': 'filter' } });
+      }
+
+      // 3bis) Hors-sujet évident (calculs, nourriture, météo…) : réponse fixe, aucun token consommé
+      if (looksOffTopic(question)) {
+        return new Response(textToStream(OFFTOPIC_REPLY), { headers: { ...sseHeaders, 'X-Source': 'filter' } });
       }
 
       // 4) Cache des questions identiques (premier message d'une conversation uniquement)

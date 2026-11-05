@@ -53,6 +53,23 @@ export function looksLikeInjection(text) {
   return INJECTION_PATTERNS.some((re) => re.test(text));
 }
 
+const OFFTOPIC_PATTERNS = [
+  /^[\d\s+\-*\/x×÷=().,?:]+$/,                                   // calculs : « 1+1 »
+  /combien (font|fait|ca fait|ça fait)|what is \d|how much is \d/i,
+  /\b(mcdo|mc ?donald'?s?|burger|pizza|kebab|recette|restaurant|fast.?food)\b/i,
+  /\b(m[ée]t[ée]o|weather|horoscope|blague|joke|bitcoin|football|score du match)\b/i,
+  /(écris|ecris|write|génère|genere|generate).{0,30}(fonction|code|script|programme|poème|poeme|poem|histoire|story|essay|dissertation)/i,
+  /\b(traduis|translate)\b/i
+];
+
+export function looksOffTopic(text) {
+  return OFFTOPIC_PATTERNS.some((re) => re.test(text.trim()));
+}
+
+export const OFFTOPIC_REPLY =
+  'Désolé, je n’ai pas la réponse. Ce chat ne sert qu’à présenter le parcours de Farès Medjahed : ses expériences, compétences, projets, formation et objectifs.\n' +
+  'Sorry, I don’t have the answer. This chat is only here to present Farès Medjahed’s background: his experience, skills, projects, education and goals.';
+
 export const INJECTION_REPLY =
   'Je ne peux pas faire cela. Je suis l’assistant IA de Farès : posez-moi plutôt vos questions sur son parcours, ses compétences ou ses projets.\n' +
   'I can’t do that. I’m Farès’s AI assistant: feel free to ask about his background, skills or projects.';

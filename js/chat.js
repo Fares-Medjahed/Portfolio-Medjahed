@@ -212,12 +212,12 @@
                en: 'In the medium term I see myself as an IT project manager, then moving into team management. I remain open to an international experience.' },
     refus: { fr: 'Je ne communique pas de salaire ni de données personnelles ici. Pour en discuter, contactez-moi directement : ' + contactFr + '.',
              en: 'I don’t share salary or personal data here. To discuss it, contact me directly: ' + C.email + ' or LinkedIn (' + C.linkedin + ').' },
-    horsSujet: { fr: 'Je ne peux répondre qu’aux questions sur mon profil : parcours, compétences, projets, formation, alternance ou objectifs. Que souhaitez-vous savoir ?',
-                 en: 'I can only answer questions about my profile: background, skills, projects, education, work-study or goals. What would you like to know?' },
+    horsSujet: { fr: 'Désolé, je n’ai pas la réponse. Ce chat ne sert qu’à présenter le parcours de Farès Medjahed : ses expériences, compétences, projets, formation et objectifs. Pour toute autre question, vous pouvez le contacter : ' + C.email + ' ou LinkedIn (' + C.linkedin + ').',
+                 en: 'Sorry, I don’t have the answer. This chat is only here to present Farès Medjahed’s background: his experience, skills, projects, education and goals. For anything else, you can contact him: ' + C.email + ' or LinkedIn (' + C.linkedin + ').' },
     injection: { fr: 'Je ne peux pas faire cela. Posez-moi plutôt vos questions sur le parcours, les compétences ou les projets de Farès.',
                  en: 'I can’t do that. Feel free to ask about Farès’s background, skills or projects.' },
-    inconnu: { fr: 'Je n’ai pas cette information, le mieux est de me contacter directement : ' + contactFr + '.',
-               en: 'I don’t have that information, the best is to contact me directly: ' + C.email + ' or LinkedIn (' + C.linkedin + ').' }
+    inconnu: { fr: 'Désolé, je n’ai pas la réponse. Ce chat ne sert qu’à présenter le parcours de Farès Medjahed : ses expériences, compétences, projets, formation et objectifs. Pour toute autre question, vous pouvez le contacter : ' + C.email + ' ou LinkedIn (' + C.linkedin + ').',
+               en: 'Sorry, I don’t have the answer. This chat is only here to present Farès Medjahed’s background: his experience, skills, projects, education and goals. For anything else, you can contact him: ' + C.email + ' or LinkedIn (' + C.linkedin + ').' }
   };
   var RULES = [
     ['refus', /salaire|remuneration|pretention|salary|\bpay\b|wage|adresse(?!\s*(e-?mail|mail|email))|home address|\bage\b|how old|quel age/],
@@ -225,7 +225,7 @@
     ['injection', /(ignore|oublie|disregard|forget).{0,40}(instruction|consigne|regle|rule|prompt)|prompt systeme|system prompt|tu es maintenant|you are now|jailbreak|mode developpeur|developer mode/],
     ['confidential', /(serveur|server|interne|internal|infrastructure|architecture|code source|source code|nom des? appli).*(edf|bugey|nucle|nuclear|alternance|work-study)|(edf|bugey|nucle|nuclear).*(serveur|server|interne|internal|infrastructure|architecture|code source|source code)/],
     ['ai', /(es[- ]tu|etes[- ]vous|are you).{0,25}(humain|human|robot|\bia\b|\bai\b|bot|vrai|real)|qui t.a (cree|fait)/],
-    ['horsSujet', /meteo|weather|recette|cuisine|football|capitale|president|politique|election|bitcoin|blague|joke|ecris.{0,25}(fonction|code|script|programme)|write.{0,25}(function|code|script|program)|tri en python|sorting|traduis|translate|\bmath/],
+    ['horsSujet', /^[\d\s+\-*\/x=().,?:]+$|combien (font|fait|ca fait)|mcdo|mc ?donald|burger|pizza|kebab|restaurant|fast.?food|chanson|film|serie|jeu de|horoscope|meteo|weather|recette|cuisine|football|capitale|president|politique|election|bitcoin|blague|joke|ecris.{0,25}(fonction|code|script|programme)|write.{0,25}(function|code|script|program)|tri en python|sorting|traduis|translate|\bmath/],
     ['hello', /^(bonjour|salut|hello|hi|hey|coucou|bonsoir)\b/],
     ['qualites', /qualite|point(s)? fort|\bforces?\b|strength|soft skill|savoir[- ]etre|bonne humeur|caractere|personnalite|personality|best qualities|good at/],
     ['defauts', /defaut|point(s)? faible|faiblesse|weakness|flaw|axe d.amelioration|area (for|to) improve|worst/],
