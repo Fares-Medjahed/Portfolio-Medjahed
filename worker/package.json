@@ -8,7 +8,8 @@
     "local": "node scripts/dev-server.mjs",
     "deploy": "wrangler deploy",
     "test": "node --test test/*.test.mjs",
-    "live-test": "node scripts/live-test.mjs"
+    "live-test": "node scripts/live-test.mjs",
+    "bundle": "node scripts/bundle.mjs"
   },
   "devDependencies": {
     "wrangler": "^4.0.0"

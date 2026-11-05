@@ -87,6 +87,15 @@ Modèle de fichier local : `worker/.dev.vars.example` (copiez-le en `worker/.dev
 
 > **Deux modes.** Tant que `data-api` est vide, le chatbot fonctionne en **mode local** : le bouton est visible et répond à partir du profil de Farès (règles par mots-clés dans `js/chat.js`, rubrique « Mode local »), sans IA, sans clé et sans aucun envoi de données. Dès que `data-api` pointe vers le Worker, il passe en **mode IA** ; si l'IA est indisponible (quota épuisé, panne), il retombe automatiquement sur le mode local. Pour modifier les réponses du mode local, éditez l'objet `A` et les règles `RULES` dans `js/chat.js`.
 
+## Déploiement sans terminal (tableau de bord Cloudflare)
+
+Le fichier `worker/dist/worker.js` contient tout le Worker en un seul fichier (régénéré par `cd worker && npm run bundle` après toute modification de `worker/src/`).
+
+1. https://dash.cloudflare.com → **Workers & Pages** → **Create** → **Start with Hello World** → nom `portfolio-chat` → **Deploy**.
+2. **Edit code** : supprimez tout, collez le contenu de `worker/dist/worker.js`, puis **Deploy**.
+3. **Settings → Variables and Secrets** : ajoutez en **Secret** `GROQ_API_KEY`, `GEMINI_API_KEY`, `IP_SALT` (chaîne aléatoire), et en **Text** `ALLOWED_ORIGINS` = `https://fares-medjahed.github.io` et `PROVIDERS` = `groq,gemini`. Puis **Deploy**.
+4. Copiez l'URL du Worker (`https://portfolio-chat.<sous-domaine>.workers.dev`), testez `…/health`, puis renseignez `data-api="…/chat"` dans `index.html`.
+
 ## Mettre à jour la base de connaissances
 1. Modifiez `worker/src/knowledge.js` (faits exacts et non confidentiels uniquement ; coordonnées dans `CONTACT`).
 2. `cd worker && npm test` puis `npm run deploy`.
