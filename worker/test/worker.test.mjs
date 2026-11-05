@@ -53,7 +53,7 @@ afterEach(() => { globalThis.fetch = realFetch; });
 
 test('le prompt système contient les règles et la base de connaissances', () => {
   const p = buildSystemPrompt();
-  for (const s of ['UNIQUEMENT', 'première personne', 'assistant IA', 'confidentielle', 'MAALSI', 'Rio Tinto', 'Mafelec', 'Fares.medjahed2@gmail.com', 'ni salaire']) {
+  for (const s of ['UNIQUEMENT', 'première personne', 'assistant IA', 'confidentielle', 'MAALSI', 'Rio Tinto', 'Mafelec', 'Fares.medjahed2@gmail.com', 'ni salaire', '06 36 44 23 46', 'L\'Isle-d\'Abeau', 'perfectionniste', 'SAVOIR-ÊTRE']) {
     assert.ok(p.includes(s), `prompt sans « ${s} »`);
   }
 });

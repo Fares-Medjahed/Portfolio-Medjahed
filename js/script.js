@@ -21,7 +21,9 @@ const EN = {
   i1_l: 'Education', i1_v: 'MAALSI Master’s, CESI',
   i2_l: 'Current role', i2_v: 'Work-study at EDF (2025–2027)',
   i3_l: 'Goal', i3_v: 'IT project manager / Full-stack',
-  i4_l: 'Mobility', i4_v: 'Open to international',
+  i4_l: 'Location', i4_v: 'L’Isle-d’Abeau · own vehicle',
+  i5_l: 'Mobility', i5_v: 'Open to international',
+  i6_l: 'Experience', i6_v: 'Working since age 18',
   skills_h: 'Skills', int_h: 'Interests',
   int1: 'Sport', int2: 'Travel', int3: 'Cars', int4: 'Video games', int5: 'Piano',
   edf_kicker: 'Main experience', edf_title: 'Work-study at EDF',
@@ -70,6 +72,11 @@ const skills = [
     items: ['Angular', 'NestJS', 'TypeORM', 'Node.js', 'PHP / Symfony', 'SQL / PL-SQL', 'Python',
       { fr: 'Administration Linux', en: 'Linux administration' },
       { fr: 'Administration de VM', en: 'VM administration' }, 'Java', 'C / C++'] },
+  { title: { fr: 'Savoir-être', en: 'Soft skills' },
+    items: [
+      { fr: 'Bonne humeur', en: 'Positive attitude' }, { fr: 'Esprit d’équipe', en: 'Team spirit' }, { fr: 'Calme sous pression', en: 'Calm under pressure' },
+      { fr: 'Autonomie', en: 'Autonomy' }, { fr: 'Curiosité', en: 'Curiosity' }, { fr: 'Rigueur', en: 'Rigour' }
+    ] },
   { title: { fr: 'Outils & gestion de projet', en: 'Tools & project management' },
     items: ['Jira', 'GitLab', 'Git', { fr: 'Merge requests', en: 'Merge requests' }, { fr: 'Revue de code', en: 'Code review' }, 'PM2', 'Power BI', 'Dynamics 365', 'Bootstrap', 'Flutter'] }
 ];

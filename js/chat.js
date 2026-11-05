@@ -149,14 +149,14 @@
 
 
   /* ---------- Mode local : réponses issues du profil (sans IA, sans réseau) ---------- */
-  var C = { email: EMAIL, linkedin: LINKEDIN, github: 'https://github.com/Fares-Medjahed', cv: 'https://fares-medjahed.github.io/Portfolio-Medjahed/cv/CV-Fares-Medjahed.pdf' };
+  var C = { phone: '06 36 44 23 46', email: EMAIL, linkedin: LINKEDIN, github: 'https://github.com/Fares-Medjahed', cv: 'https://fares-medjahed.github.io/Portfolio-Medjahed/cv/CV-Fares-Medjahed.pdf' };
   var contactFr = C.email + ' ou LinkedIn (' + C.linkedin + ')';
   var A = {
     hello: { fr: 'Bonjour ! Je suis l’assistant IA de Farès. Je peux vous parler de son parcours, de ses compétences, de ses projets ou de son alternance chez EDF. Que souhaitez-vous savoir ?',
              en: 'Hello! I’m Farès’s AI assistant. I can tell you about his background, skills, projects or his work-study at EDF. What would you like to know?' },
     ai: { fr: 'Je suis un assistant IA qui représente Farès : je réponds à partir des informations qu’il a renseignées (parcours, CV, expériences, projets). Pour un échange direct, contactez-le : ' + C.email + '.',
           en: 'I’m an AI assistant representing Farès: I answer from the information he has provided (background, CV, experience, projects). For a direct conversation, contact him: ' + C.email + '.' },
-    parcours: { fr: 'Je suis Farès Medjahed, alternant chez EDF (centrale nucléaire du Bugey) depuis août 2025 et étudiant en mastère MAALSI à CESI École d’ingénieurs. Avant, j’ai fait un BUT Informatique à l’IUT 2 de Grenoble, après un Bac STI2D. J’ai aussi effectué des stages chez Rio Tinto (2024) et Mafelec (2023). Je vise un poste de chef de projet IT ou de développeur full-stack, et je suis ouvert à l’international.',
+    parcours: { fr: 'Je suis Farès Medjahed, alternant chez EDF (centrale nucléaire du Bugey) depuis août 2025 et étudiant en mastère MAALSI à CESI École d’ingénieurs. Avant, j’ai fait un BUT Informatique à l’IUT 2 de Grenoble, après un Bac STI2D. J’ai aussi effectué des stages chez Rio Tinto (2024) et Mafelec (2023). Je travaille depuis mes 18 ans, je vise un poste de chef de projet IT ou de développeur full-stack, et je suis ouvert à l’international.',
                 en: 'I’m Farès Medjahed, a work-study student at EDF (Bugey nuclear power plant) since August 2025 and a MAALSI Master’s student at CESI engineering school. Before that I did a Bachelor’s in Computer Science at IUT 2 Grenoble, after a STI2D baccalaureate. I also did internships at Rio Tinto (2024) and Mafelec (2023). I’m aiming for an IT project manager or full-stack developer role, and I’m open to working internationally.' },
     formation: { fr: 'Mon parcours : Bac STI2D (spécialité ITEC, lycée de l’Oiselet à Bourgoin-Jallieu, mention Assez Bien), puis BUT Informatique à l’IUT 2 de Grenoble, puis le mastère « Manager en architecture et applications logicielles des systèmes d’information » (MAALSI) à CESI École d’ingénieurs : niveau 7 (RNCP 35620), en alternance, de 2025 à 2027.',
                  en: 'My education: STI2D baccalaureate (ITEC specialty, Lycée de l’Oiselet, Bourgoin-Jallieu, with honours), then a Bachelor’s in Computer Science at IUT 2 Grenoble, then the MAALSI Master’s (Manager in software architecture and information systems applications) at CESI engineering school: level 7 (RNCP 35620), work-study, 2025 to 2027.' },
@@ -192,6 +192,24 @@
                 en: 'Outside work I enjoy sport and travel, which fuel my openness to the world. I also like cars, video games and the piano.' },
     langues: { fr: 'Je peux répondre en français ou en anglais. Pour le niveau exact de Farès dans chaque langue, le mieux est de le contacter directement : ' + C.email + '.',
                en: 'I can answer in French or English. For Farès’s exact level in each language, the best is to contact him directly: ' + C.email + '.' },
+    qualites: { fr: 'Mes principales qualités : la bonne humeur, l’esprit d’équipe et le calme. J’aime travailler avec les autres, garder une ambiance positive et rester posé quand il y a de la pression. J’ajoute l’autonomie, la curiosité et la rigueur, que mes stages et mon alternance m’ont permis de développer.',
+                en: 'My main qualities: a positive attitude, team spirit and calm. I enjoy working with others, keeping a good atmosphere and staying composed under pressure. I would add autonomy, curiosity and rigour, which my internships and work-study have helped me develop.' },
+    defauts: { fr: 'Mon principal défaut : je suis perfectionniste, je peux passer trop de temps sur un détail. Je m’en méfie en priorisant, en fixant des échéances et en demandant l’avis de l’équipe avant de trop peaufiner.',
+               en: 'My main weakness: I’m a perfectionist and can spend too long on a detail. I manage it by prioritising, setting deadlines and asking the team for input before over-polishing.' },
+    equipe: { fr: 'Je me sens à l’aise en équipe : bonne humeur, écoute et calme, même sous pression. J’ai travaillé en équipe de 3, 4, 6 et 8 personnes sur mes projets académiques, et en alternance avec des utilisateurs métier et des collègues développeurs (réunions de projet, merge requests, revue de code).',
+              en: 'I’m comfortable in a team: positive, attentive and calm, even under pressure. I’ve worked in teams of 3, 4, 6 and 8 on my academic projects, and during my work-study with business users and fellow developers (project meetings, merge requests, code review).' },
+    localisation: { fr: 'J’habite à L’Isle-d’Abeau (Isère) et je suis véhiculé, ce qui facilite mes déplacements. Je suis aussi ouvert à l’international.',
+                    en: 'I live in L’Isle-d’Abeau (Isère, France) and I have my own vehicle, which makes getting around easy. I’m also open to working internationally.' },
+    telephone: { fr: 'Vous pouvez m’appeler au ' + C.phone + ', ou m’écrire par email : ' + C.email + ' ou sur LinkedIn : ' + C.linkedin + '.',
+                 en: 'You can call me on ' + C.phone + ', or write to me by email: ' + C.email + ' or on LinkedIn: ' + C.linkedin + '.' },
+    expPro: { fr: 'Je travaille depuis mes 18 ans : je mène mes études en parallèle d’expériences professionnelles, avec un job étudiant chez Décathlon (2022), des stages chez Mafelec (2023) et Rio Tinto (2024), puis mon alternance chez EDF depuis août 2025. J’ai donc l’habitude du monde professionnel et des responsabilités.',
+              en: 'I’ve been working since I was 18: I study alongside professional experience, with a student job at Decathlon (2022), internships at Mafelec (2023) and Rio Tinto (2024), then my work-study at EDF since August 2025. I’m used to the professional world and to taking responsibility.' },
+    recruter: { fr: 'Parce que je combine trois profils : développeur full-stack, administrateur systèmes et gestion de projet, dans un environnement exigeant (nucléaire) où sécurité et fiabilité comptent. Je travaille depuis mes 18 ans, je suis autonome, calme et de bonne humeur en équipe, et je vise un poste de chef de projet IT.',
+                en: 'Because I combine three profiles: full-stack developer, systems administrator and project management, in a demanding environment (nuclear) where security and reliability matter. I’ve worked since I was 18, I’m autonomous, calm and positive in a team, and I’m aiming for an IT project manager role.' },
+    pourquoiEdf: { fr: 'Mon alternance chez EDF me place dans un environnement exigeant en sécurité, fiabilité et conformité, sur des projets utilisés par de vrais utilisateurs, déployés d’abord sur le site avec une trajectoire d’extension nationale. J’y développe à la fois mes compétences techniques et ma gestion de projet : réunions, recueil du besoin, coordination.',
+                    en: 'My work-study at EDF puts me in an environment demanding on security, reliability and compliance, on projects used by real users, deployed first on site with a path to national rollout. I develop both my technical skills and my project management there: meetings, requirements gathering, coordination.' },
+    cinqAns: { fr: 'À moyen terme, je me vois chef de projet IT, puis évoluer vers le management d’équipes. Je reste ouvert à une expérience à l’international.',
+               en: 'In the medium term I see myself as an IT project manager, then moving into team management. I remain open to an international experience.' },
     refus: { fr: 'Je ne communique pas de salaire ni de données personnelles ici. Pour en discuter, contactez-moi directement : ' + contactFr + '.',
              en: 'I don’t share salary or personal data here. To discuss it, contact me directly: ' + C.email + ' or LinkedIn (' + C.linkedin + ').' },
     horsSujet: { fr: 'Je ne peux répondre qu’aux questions sur mon profil : parcours, compétences, projets, formation, alternance ou objectifs. Que souhaitez-vous savoir ?',
@@ -202,12 +220,21 @@
                en: 'I don’t have that information, the best is to contact me directly: ' + C.email + ' or LinkedIn (' + C.linkedin + ').' }
   };
   var RULES = [
-    ['refus', /salaire|remuneration|pretention|salary|\bpay\b|wage|telephone|numero de tel|adresse|phone number|home address|\bage\b/],
+    ['refus', /salaire|remuneration|pretention|salary|\bpay\b|wage|adresse(?!\s*(e-?mail|mail|email))|home address|\bage\b|how old|quel age/],
+    ['telephone', /telephone|\btel\b|numero|phone|appeler|call you|portable|mobile phone/],
     ['injection', /(ignore|oublie|disregard|forget).{0,40}(instruction|consigne|regle|rule|prompt)|prompt systeme|system prompt|tu es maintenant|you are now|jailbreak|mode developpeur|developer mode/],
     ['confidential', /(serveur|server|interne|internal|infrastructure|architecture|code source|source code|nom des? appli).*(edf|bugey|nucle|nuclear|alternance|work-study)|(edf|bugey|nucle|nuclear).*(serveur|server|interne|internal|infrastructure|architecture|code source|source code)/],
     ['ai', /(es[- ]tu|etes[- ]vous|are you).{0,25}(humain|human|robot|\bia\b|\bai\b|bot|vrai|real)|qui t.a (cree|fait)/],
     ['horsSujet', /meteo|weather|recette|cuisine|football|capitale|president|politique|election|bitcoin|blague|joke|ecris.{0,25}(fonction|code|script|programme)|write.{0,25}(function|code|script|program)|tri en python|sorting|traduis|translate|\bmath/],
     ['hello', /^(bonjour|salut|hello|hi|hey|coucou|bonsoir)\b/],
+    ['qualites', /qualite|point(s)? fort|\bforces?\b|strength|soft skill|savoir[- ]etre|bonne humeur|caractere|personnalite|personality|best qualities|good at/],
+    ['defauts', /defaut|point(s)? faible|faiblesse|weakness|flaw|axe d.amelioration|area (for|to) improve|worst/],
+    ['recruter', /pourquoi (te|vous|devrait|faut).{0,20}(recrut|embauch|choisir|prendre)|why (should|would).{0,20}(hire|choose|recruit)|valeur ajoutee|ce qui te distingue|what makes you (different|special)|why you/],
+    ['pourquoiEdf', /pourquoi.{0,15}(edf|nucle)|why.{0,10}(edf|nuclear)|motivation.{0,20}edf/],
+    ['cinqAns', /dans (5|cinq) ans|where do you see yourself|in (5|five) years|evolution|evoluer|plan de carriere/],
+    ['expPro', /18 ans|age de 18|experience pro|annees d.experience|years of experience|premier job|first job|depuis quand (tu )?travaill|how long.{0,15}work/],
+    ['localisation', /vehicul|permis|voiture|habite|ou (vis|resid)|ville|localis|where (do you live|are you (based|located))|\blives?\b|reside|commut|trajet|deplac|isle/],
+    ['equipe', /equipe|\bteam|collabor|travail en groupe|teamwork|ambiance|collegue|colleague/],
     ['cv', /\bcv\b|curriculum|resume\b.*(pdf|telecharg)|download.*(cv|resume)/],
     ['contact', /contact|e-?mail|linkedin|github|joindre|reach (you|him)|get in touch|coordonnee/],
     ['dispo', /disponib|available|availability|embauch|recrut|start date|date de debut|\bhire\b|libre/],
@@ -218,13 +245,13 @@
     ['stage', /stage|internship|intern\b/],
     ['edf', /\bedf\b|bugey|nucleaire|nuclear|alternance|work-study|apprentice|formulaire|signature|demandoc|diffusion/],
     ['formation', /formation|etude|diplome|master|mastere|maalsi|cesi|\bbut\b|\biut\b|\bbac\b|sti2d|education|degree|school|univers/],
-    ['gestion', /gestion de projet|project management|chef de projet|project manager|\bmanage|agile|scrum|kanban|leadership|equipe|\bteam\b|parties prenantes|stakeholder/],
+    ['gestion', /gestion de projet|project management|chef de projet|project manager|\bmanage|agile|scrum|kanban|leadership|parties prenantes|stakeholder/],
     ['projets', /projet|project|dahu|instru|demineur|r-jump|pygame|portfolio|realis/],
     ['php', /\bphp\b|symfony/],
     ['competences', /competence|skill|techno|langage|stack|angular|nestjs|nest\b|typeorm|sql|python|java|linux|jira|\bgit|outil|tool|framework|\bc\+\+|node/],
     ['objectifs', /objectif|\bgoal|ambition|motivation|pourquoi|\bwhy\b|projet pro|carriere|career|futur|\bfuture\b|\bvise\b|looking for|recherch/],
     ['interets', /interet|hobby|hobbies|loisir|sport|voyage|piano|jeux|passion|travel|interests|musique/],
-    ['parcours', /parcours|background|profil|presente|qui es|qui etes|who are|about you|about yourself|cursus|experience|racont|tell me/]
+    ['parcours', /parcours|background|profil|presente|de toi|de vous|about you|introduce|qui es|qui etes|who are|about you|about yourself|cursus|experience|racont|tell me/]
   ];
   function strip(s) { return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
   function isEnglish(q) {

@@ -9,6 +9,7 @@ export const CONTACT = {
   email: 'Fares.medjahed2@gmail.com',
   linkedin: 'https://www.linkedin.com/in/fares-m-8a0b7224b/',
   github: 'https://github.com/Fares-Medjahed',
+  phone: '06 36 44 23 46',
   site: 'https://fares-medjahed.github.io/Portfolio-Medjahed/',
   cv: 'https://fares-medjahed.github.io/Portfolio-Medjahed/cv/CV-Fares-Medjahed.pdf'
 };
@@ -17,9 +18,18 @@ export const KNOWLEDGE = `
 ## IDENTITÉ
 - Nom : Farès Medjahed
 - Rôle visé : chef de projet IT ou développeur full-stack
-- Localisation : France
+- Localisation : j'habite à L'Isle-d'Abeau (Isère, France). Je suis véhiculé.
+- Expérience professionnelle : je travaille depuis mes 18 ans (jobs étudiants, stages, puis alternance).
 - Disponibilité : en alternance chez EDF d'août 2025 jusqu'en 2027, dans le cadre de mon mastère. Pour toute autre question de disponibilité, il faut me contacter.
 - Mobilité : ouvert à l'international (une mission ou un poste à l'étranger est envisageable).
+
+## SAVOIR-ÊTRE ET PERSONNALITÉ
+- Qualités : bonne humeur, esprit d'équipe, calme (je reste posé sous pression), autonomie, curiosité, rigueur et précision.
+- Travail en équipe : j'aime travailler avec les autres. J'ai travaillé en équipes de 3, 4, 6 et 8 personnes sur mes projets académiques, et en alternance avec des utilisateurs métier et des collègues développeurs (réunions de projet, merge requests, revue de code).
+- Principal défaut : je suis perfectionniste, je peux passer trop de temps sur un détail. Je m'en méfie en priorisant, en fixant des échéances et en demandant l'avis de l'équipe avant de trop peaufiner.
+- Ce qui me motive : comprendre le besoin des utilisateurs, livrer des solutions fiables et apprendre en continu.
+- Pourquoi me recruter : je combine trois profils (développeur full-stack, administrateur systèmes, gestion de projet) dans un environnement exigeant (sécurité, fiabilité, conformité), je travaille depuis mes 18 ans, je suis autonome, calme et de bonne humeur en équipe, et je vise un poste de chef de projet IT.
+- Dans 5 ans : chef de projet IT, puis évolution vers le management d'équipes, avec si possible une expérience à l'international.
 
 ## FORMATION
 - Bac STI2D, spécialité ITEC, au lycée de l'Oiselet à Bourgoin-Jallieu, obtenu avec la mention Assez Bien.
@@ -71,6 +81,7 @@ Tous mes projets sont présentés dans la section « Projets » du portfolio.
 
 ## CONTACT
 - Email : ${CONTACT.email}
+- Téléphone : ${CONTACT.phone} (communiquer si on le demande)
 - LinkedIn : ${CONTACT.linkedin}
 - GitHub : ${CONTACT.github}
 - Portfolio : ${CONTACT.site}
